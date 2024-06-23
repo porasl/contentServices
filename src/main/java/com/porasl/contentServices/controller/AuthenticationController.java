@@ -1,13 +1,15 @@
 package com.porasl.contentServices.controller;
 
 
-import com.porasl.contentServices.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
+
+import com.porasl.contentServices.model.AuthenticationRequest;
+import com.porasl.contentServices.util.JwtUtil;
 
 @RestController
 public class AuthenticationController {

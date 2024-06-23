@@ -33,7 +33,7 @@ public class FfmpegService {
                 .done();
 
         FFmpegJob job = new SinglePassFFmpegJob(ffmpeg, builder, progress -> {
-            System.out.println(String.format("[%.0f%%] status: %s", progress.progress * 100, progress.status));
+            System.out.println(String.format("[%.0f%%] status: %s", progress.speed * 100, progress.status));
         });
 
         job.run();
