@@ -1,6 +1,6 @@
 package com.porasl.contentServices.config;
 
-import com.example.contentservice.filter.JwtRequestFilter;
+import com.porasl.contentServices.filter.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
