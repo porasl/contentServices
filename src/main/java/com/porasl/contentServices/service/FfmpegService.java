@@ -1,4 +1,4 @@
-package con.porasl.contentServices.service;
+package com.porasl.contentServices.service;
 
 import net.bramp.ffmpeg.FFmpeg;
 import net.bramp.ffmpeg.FFprobe;
