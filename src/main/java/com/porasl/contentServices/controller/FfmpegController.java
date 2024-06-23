@@ -1,17 +1,16 @@
 package com.porasl.contentServices.controller;
 
+import com.example.contentservice.service.FfmpegService;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
-
-import com.porasl.contentServices.service.FfmpegService;
+import java.nio.file.Paths;
 
 @RestController
 @RequestMapping("/api/ffmpeg")
@@ -20,6 +19,7 @@ public class FfmpegController {
     @Autowired
     private FfmpegService ffmpegService;
 
+    @ApiOperation(value = "Transcode a video file to HLS format")
     @PostMapping("/transcode")
     public String transcode(@RequestParam("file") MultipartFile file) throws IOException {
         // Save the uploaded file to a temporary location
