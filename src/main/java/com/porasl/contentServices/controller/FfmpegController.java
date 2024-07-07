@@ -19,7 +19,7 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping("/api/ffmpeg")
 public class FfmpegController {
 
-    @Autowired
+  /*  @Autowired
     private FfmpegService ffmpegService;
 
     @ApiOperation(value = "Transcode a video file to HLS format")
@@ -41,4 +41,5 @@ public class FfmpegController {
 
         return result;
     }
+    */
 }
