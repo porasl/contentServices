@@ -23,19 +23,19 @@ spring:
   security:
     user:
       name: root
-      password: root
+      password: passw0rd
       roles: user
 springdoc:
   api-docs:
     path: /api-docs
   swagger-ui:
-    path: /swagger-ui-custom.html
+    path: /swagger-ui.html
     operationsSorter: alpha 
     
 api:
   version: 1.0-SNAPSHOT
   server:
-    url: http://localhost:8080
+    url: http://localhost:8082
     description: The User API is used to create, update, and delete users. Users can be created with or without an associated account. If an account is created, the user will be granted the <strong>ROLE_USER</strong> role. If an account is not created, the user will be granted the <b>ROLE_USER</b> role.
 
 application:
@@ -48,8 +48,8 @@ application:
         expiration: 604800000 # 7 days
 porasl:
   openapi:
-    dev-url:http://localhost:8080
-    prod-url:http://localhost:8080
+    dev-url:http://localhost:8082
+    prod-url:http://localhost:8082
 ffmpeg:
   path=/usr/local/bin/ffmpeg
 ffprobe:

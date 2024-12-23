@@ -1,4 +1,4 @@
-package com.porasl.content.servie;
+package com.porasl.contentservices.service;
 
 import org.springframework.beans.factory.annotation.Autowired; 
 import org.springframework.core.io.Resource; 
@@ -18,7 +18,7 @@ import java.util.Objects;
 import java.util.stream.Stream;
 
 import com.porasl.exception.StorageException;
-import com.porasl.frontend.config.StorageProperties;
+import com.porasl.contentservices.config.StorageProperties;
 
 @Service
 public class StorageService {

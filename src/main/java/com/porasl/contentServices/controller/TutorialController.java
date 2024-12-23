@@ -1,4 +1,4 @@
-package com.porasl.contentServices.controller;
+package com.porasl.contentservices.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.porasl.contentServices.model.Tutorial;
-import com.porasl.contentServices.service.TutorialService;
+import com.porasl.contentservices.model.Tutorial;
+import com.porasl.contentservices.service.TutorialService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -28,7 +28,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @Tag(name = "Tutorial", description = "Tutorial management APIs")
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin(origins = "http://localhost:8082")
 @RestController
 @RequestMapping("/api")
 public class TutorialController {

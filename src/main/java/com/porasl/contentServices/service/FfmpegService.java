@@ -1,4 +1,4 @@
-package com.porasl.contentServices.service;
+package com.porasl.contentservices.service;
 
 import org.springframework.stereotype.Service;
 

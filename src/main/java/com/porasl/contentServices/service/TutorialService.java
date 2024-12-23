@@ -1,4 +1,4 @@
-package com.porasl.contentServices.service;
+package com.porasl.contentservices.service;
 
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,7 +13,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.porasl.contentServices.model.Tutorial;
+import com.porasl.contentservices.model.Tutorial;
 
 @Service
 public class TutorialService {

@@ -1,4 +1,4 @@
-package com.porasl.contentServices;
+package com.porasl.contentservices;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

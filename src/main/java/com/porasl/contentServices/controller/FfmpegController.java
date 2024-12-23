@@ -1,4 +1,4 @@
-package com.porasl.contentServices.controller;
+package com.porasl.contentservices.controller;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.porasl.contentServices.service.FfmpegService;
+import com.porasl.contentservices.service.FfmpegService;
 
 import io.swagger.annotations.ApiOperation;
 

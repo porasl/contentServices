@@ -1,4 +1,4 @@
-package com.porasl.content.controller;
+package com.porasl.contentservices.controller;
 
 import java.nio.file.Path;
 import java.util.List;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile; 
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
-import com.porasl.content.servie.StorageService;
+import com.porasl.contentservices.service.StorageService;
 
 import java.util.List; 
 import java.util.stream.Collectors;

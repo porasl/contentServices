@@ -1,4 +1,4 @@
-package com.porasl.contentServices.model;
+package com.porasl.contentservices.model;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 public class Tutorial {
