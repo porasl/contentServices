@@ -134,12 +134,12 @@
 		<dependency>
 			<groupId>io.swagger.core.v3</groupId>
 			<artifactId>swagger-annotations</artifactId>
-			<version>2.2.22</version>
+			<version>2.2.27</version>
 		</dependency>
 		<dependency>
 			<groupId>io.swagger.core.v3</groupId>
 			<artifactId>swagger-models</artifactId>
-			<version>2.2.22</version>
+			<version>2.2.27</version>
 		</dependency>
 		<dependency> <groupId>org.springdoc</groupId> 
 			<artifactId>springdoc-openapi-ui</artifactId> 
@@ -149,7 +149,81 @@
 			<artifactId>gson</artifactId> 
 			<version>2.11.0</version> 
 		</dependency>
+		
+		<dependency> 
+			<groupId>com.fasterxml.jackson.core</groupId> 
+		    <artifactId>jackson-core</artifactId> 
+		    <version>2.16.2</version> 
+		</dependency> 
+		 <dependency> 
+		 	<groupId>com.fasterxml.jackson.core</groupId> 
+		 	<artifactId>jackson-databind</artifactId> 
+		 	<version>2.16.2</version> 
+		 </dependency> 
+		 <dependency> 
+		 	<groupId>com.fasterxml.jackson.core</groupId> 
+		 	<artifactId>jackson-annotations</artifactId> 
+		 	<version>2.16.2</version> 
+		 	</dependency> 
+		 <dependency> 
+		 	<groupId>org.springdoc</groupId> 
+		 	<artifactId>springdoc-openapi-ui</artifactId> 
+		 	<version>1.7.0</version> 
+		 </dependency>
+		 <dependency> 
+		 	<groupId>com.fasterxml.jackson.core</groupId> 
+		 	<artifactId>jackson-core</artifactId> 
+		 	<version>2.13.4</version> 
+		 </dependency> 
+		 <dependency> 
+		 <groupId>com.fasterxml.jackson.core</groupId> 
+		 <artifactId>jackson-databind</artifactId> 
+		 <version>2.13.4</version> 
+		</dependency> 
+		<dependency>
+    		<groupId>io.swagger.core.v3</groupId>
+    		<artifactId>swagger-core-jakarta</artifactId>
+    		<version>2.2.27</version>
+		</dependency>
+		<dependency> 
+			<groupId>com.fasterxml.jackson.core</groupId> 
+			<artifactId>jackson-annotations</artifactId> 
+			<version>2.13.4</version> 
+		</dependency> 
+		<dependency>
+    		<groupId>io.swagger.core.v3</groupId>
+    		<artifactId>swagger-annotations-jakarta</artifactId>
+    		<version>2.2.27</version>
+		</dependency>
+		<dependency> 
+		<groupId>org.springdoc</groupId>
+		 <artifactId>springdoc-openapi-ui</artifactId> 
+		 <version>1.7.0</version> 
+		 </dependency>
+		 <dependency>
+    		<groupId>io.swagger.core.v3</groupId>
+    		<artifactId>swagger-jaxrs2</artifactId>
+    		<version>2.2.27</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.springdoc</groupId>
+    		<artifactId>springdoc-openapi-ui</artifactId>
+    		<version>1.7.0</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.springdoc</groupId>
+    		<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+    		<version>2.1.0</version>
+    		<exclusions>
+        		<exclusion>
+            		<groupId>io.swagger.v3</groupId>
+            		<artifactId>swagger-core</artifactId>
+        		</exclusion>
+    		</exclusions>
+		</dependency>
+
 	</dependencies>
+	
 	<build>
 		<plugins>
 			<plugin>
