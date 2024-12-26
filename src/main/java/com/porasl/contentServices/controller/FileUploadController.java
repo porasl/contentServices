@@ -29,4 +29,12 @@ public class FileUploadController {
         storageService.store(file);
         return ResponseEntity.ok("Video uploaded successfully: " + file.getOriginalFilename());
     }
+    
+    @GetMapping("/info")
+    @Operation(summary = "File list", description = "File list")
+    public ResponseEntity<String> getContent(
+            @Parameter(description = "The content name") @RequestParam("content") String contentName) {
+        //storageService.store(file);
+        return ResponseEntity.ok("Content Name: " + contentName);
+    }
 }
