@@ -1,7 +1,5 @@
 package com.porasl.contentservices.content;
 
-package com.inrik.client;
-
 import java.util.Date;
 import java.util.Locale;
 

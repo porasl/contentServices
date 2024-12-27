@@ -1,4 +1,4 @@
-package com.porasl.exception;
+package com.porasl.contentservices.exception;
 
 public class StorageException extends RuntimeException { 
 	public StorageException(String message) { 

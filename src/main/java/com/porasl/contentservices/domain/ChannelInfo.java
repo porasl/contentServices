@@ -1,23 +1,61 @@
 package com.porasl.contentservices.domain;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.TableGenerator;
-import javax.persistence.Temporal; 
-import javax.persistence.TemporalType;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.TableGenerator;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-//@Cacheable
-//@org.hibernate.annotations.Cache(usage =  org.hibernate.annotations.CacheConcurrencyStrategy.READ_WRITE)
+@EntityListeners(AuditingEntityListener.class)
 @Table(name = "channelinfo")
 public class ChannelInfo {
+	   @CreatedDate
+	    @Column(
+	            nullable = false,
+	            updatable = false
+	    )
+	    private LocalDateTime createDate;
+
+	    @LastModifiedDate
+	    @Column(insertable = false)
+	    private LocalDateTime lastModified;
+
+
+	    @CreatedBy
+	    @Column(
+	            nullable = false,
+	            updatable = false
+	    )
+	    private Integer createdBy;
+
+	    @LastModifiedBy
+	    @Column(insertable = false)
+	    private Integer lastModifiedBy;
 
 		private long channelinfoid;
 		
@@ -110,79 +148,6 @@ public class ChannelInfo {
 		
 		public void setChannelinfoid(long channelinfoid) {
 			this.channelinfoid = channelinfoid;
-		}
-		
-		public String getIconPath() {
-			return iconPath;
-		}
-		
-		public void setIconPath(String iconPath) {
-			this.iconPath = iconPath;
-		}
-		
-		public String getChannelName() {
-			return channelName;
-		}
-		
-		public void setChannelName(String channelName) {
-			this.channelName = channelName;
-		}
-		
-		public String getChannelTags() {
-			return channelTags;
-		}
-		
-		public void setChannelTags(String channelTags) {
-			this.channelTags = channelTags;
-		}
-		
-		public String getChannelHashTags() {
-			return channelHashTags;
-		}
-		
-		public void setChannelHashTags(String channelHashTags) {
-			this.channelHashTags = channelHashTags;
-		}
-		
-		public Date getCreationDate() {
-			return creationDate;
-		}
-
-		public void setCreationDate(Date creationDate) {
-			this.creationDate = creationDate;
-		}
-		
-		public Date getModificationDate() {
-			return modificationDate;
-		}
-
-		public void setModificationDate(Date modificationDate) {
-			this.modificationDate = modificationDate;
-		}
-
-		
-		public String getCategory() {
-			return category;
-		}
-
-		public void setCategory(String category) {
-			this.category = category;
-		}
-		
-		public long channelView() {
-			return channelView;
-		}
-
-		public void setChannelView(long channelView) {
-			this.channelView = channelView;
-		}
-		
-		public long getUserid() {
-			return userid;
-		}
-
-		public void setUserid(long userid) {
-			this.userid = userid;
 		}
 }
 

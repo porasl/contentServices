@@ -1,29 +1,63 @@
 package com.porasl.contentservices.domain;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.TableGenerator;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
 
-import org.hibernate.annotations.Type;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.TableGenerator;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 /**
  * @author Porasl
  *
  */
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-//@Cacheable
-//@org.hibernate.annotations.Cache(usage =  org.hibernate.annotations.CacheConcurrencyStrategy.READ_WRITE)
 @Table(name = "profileinfo")
 public class ProfileInfo {
+	
+	@CreatedDate
+    @Column(
+            nullable = false,
+            updatable = false
+    )
+    private LocalDateTime createDate;
+
+    @LastModifiedDate
+    @Column(insertable = false)
+    private LocalDateTime lastModified;
+
+
+    @CreatedBy
+    @Column(
+            nullable = false,
+            updatable = false
+    )
+    private Integer createdBy;
+
+    @LastModifiedBy
+    @Column(insertable = false)
+    private Integer lastModifiedBy;
+    
 
 		private long profileinfoid;
 		
@@ -105,179 +139,6 @@ public class ProfileInfo {
 		public void setProfileinfoid(long profileinfoid) {
 			this.profileinfoid = profileinfoid;
 		}
-		
-		public String getSearechKeys() {
-			return searechKeys;
-		}
-		
-		public void setSearechKeys(String searechKeys) {
-			this.searechKeys = searechKeys;
-		}
-		
-		public String getCity() {
-			return city;
-		}
-		
-		public void setCity(String city) {
-			this.city = city;
-		}
-		
-		public String getCountry() {
-			return country;
-		}
-		
-		public void setCountry(String country) {
-			this.country = country;
-		}
-		
-		public String getLocale() {
-			return locale;
-		}
-		
-		public void setLocale(String locale) {
-			this.locale = locale;
-		}
-		
-		public String getSubscribedIds() {
-			return subscribedIds;
-		}
-		
-		public void setSubscribedIds(String subscribedIds) {
-			this.subscribedIds = subscribedIds;
-		}
-		
-		public String getFreeTextProfile() {
-			return freeTextProfile;
-		}
-
-		public void setFreeTextProfile(String freeTextProfile) {
-			this.freeTextProfile = freeTextProfile;
-		}
-
-		public String getFullname() {
-			return fullname;
-		}
-
-		public void setFullname(String fullname) {
-			this.fullname = fullname;
-		}
-
-		public String getTags() {
-			return tags;
-		}
-
-		public void setTags(String tags) {
-			this.tags = tags;
-		}
-		
-		public String getHashTags() {
-			return hashTags;
-		}
-
-		public void setHashTag(String hashTags) {
-			this.hashTags = hashTags;
-		}
-		
-		public long getUserid() {
-			return userid;
-		}
-
-		public void setUserid(long userid) {
-			this.userid = userid;
-		}
-
-		public String getIconName() {
-			return iconName;
-		}
-
-		public void setIconName(String iconName) {
-			this.iconName = iconName;
-		}
-
-		public String getSchool() {
-			return school;
-		}
-
-		public void setSchool(String school) {
-			this.school = school;
-		}
-
-		public String getWorkplace() {
-			return workplace;
-		}
-
-		public void setWorkplace(String workplace) {
-			this.workplace = workplace;
-		}
-
-		public String getEducation() {
-			return education;
-		}
-
-		public void setEducation(String education) {
-			this.education = education;
-		}
-
-		public String getTitle() {
-			return title;
-		}
-
-		public void setTitle(String title) {
-			this.title = title;
-		}
-
-		public String getPhonenumber() {
-			return phonenumber;
-		}
-
-		public void setPhonenumber(String phonenumber) {
-			this.phonenumber = phonenumber;
-		}
-
-		public String getEmailaddress() {
-			return emailaddress;
-		}
-
-		public void setEmailaddress(String emailaddress) {
-			this.emailaddress = emailaddress;
-		}
-
-		public Date getCreationDate() {
-			return creationDate;
-		}
-
-		public void setCreationDate(Date creationDate) {
-			this.creationDate = creationDate;
-		}
-
-		public void setHashTags(String hashTags) {
-			this.hashTags = hashTags;
-		}
-		
-		public Date getBirthDate() {
-			return birthDate;
-		}
-
-		public void setBirthDate(Date birthDate) {
-			this.birthDate = birthDate;
-		}
-		
-		public boolean isHideInPublicsearch() {
-			return hideInPublicsearch;
-		}
-
-		public void setHideInPublicsearch(boolean hideInPublicsearch) {
-			this.hideInPublicsearch = hideInPublicsearch;
-		}
-		
-		public Date getModificationDate() {
-			return modificationDate;
-		}
-
-		public void setModificationDate(Date modificationDate) {
-			this.modificationDate = modificationDate;
-		}
-
 }
 
 

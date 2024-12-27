@@ -1,24 +1,24 @@
 package com.porasl.contentservices.service;
 
-import org.springframework.beans.factory.annotation.Autowired; 
-import org.springframework.core.io.Resource; 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.List;
+import java.util.Objects;
+
+import org.springframework.boot.autoconfigure.amqp.RabbitProperties.Stream;
+import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.codec.multipart.FilePart;
-import org.springframework.stereotype.Service; 
-import org.springframework.util.StringUtils; 
-import org.springframework.web.multipart.MultipartFile; 
-import java.io.IOException; 
-import java.net.MalformedURLException; 
-import java.nio.file.Files; 
-import java.nio.file.Path; 
-import java.nio.file.Paths; 
-import java.nio.file.StandardCopyOption; 
-import java.util.List; 
-import java.util.Objects; 
-import java.util.stream.Stream;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
-import com.porasl.exception.StorageException;
 import com.porasl.contentservices.config.StorageProperties;
+import com.porasl.contentservices.exception.StorageException;
 
 @Service
 public class StorageService {
@@ -61,7 +61,7 @@ public class StorageService {
         		throw new StorageException("Failed to store file " + filename, e); } 
         	}
 
-    public Stream<Path> loadAll() {
+    public java.util.stream.Stream<Path> loadAll() {
         try {
             return Files.walk(rootDir, 1)
                        .filter(path -> !path.equals(rootDir))
