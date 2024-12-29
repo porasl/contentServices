@@ -2,15 +2,15 @@ package com.porasl.contentservices.service;
 
 import java.util.List;
 
-import com.porasl.contentservices.domain.PostInfo;
+import com.porasl.contentservices.domain.Post;
 
 public interface PostService
 {
-   public PostInfo createOrUpdate(PostInfo postInfo);
+   public Post createOrUpdate(Post postInfo);
 
-   public List<PostInfo> getPosts(String userId);
+   public List<Post> getPosts(String userId);
  
-   public PostInfo getPost(String postId); 
+   public Post getPost(String postId); 
   
    public void deletePost(String postId);
 }

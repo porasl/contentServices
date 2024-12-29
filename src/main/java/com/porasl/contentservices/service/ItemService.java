@@ -3,15 +3,15 @@ package com.porasl.contentservices.service;
 
 import java.util.List;
 
-import com.porasl.contentservices.domain.ItemInfo;
+import com.porasl.contentservices.domain.Item;
 
 public interface ItemService
 {
-   public ItemInfo createOrUpdate(ItemInfo itemInfo);
-   public List<ItemInfo> getItems(String userId);
-   public List<ItemInfo> getInCompletedItems();
-   public ItemInfo getItem(long string, long itemId);
-   public List<ItemInfo> getItemFeatureds(String locale);
+   public Item createOrUpdate(Item itemInfo);
+   public List<Item> getItems(String userId);
+   public List<Item> getInCompletedItems();
+   public Item getItem(long string, long itemId);
+   public List<Item> getItemFeatureds(String locale);
    public void deleteItem(long itemId);
 }
 

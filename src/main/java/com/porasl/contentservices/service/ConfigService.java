@@ -2,11 +2,11 @@ package com.porasl.contentservices.service;
 
 import java.util.List;
 
-import com.porasl.contentservices.domain.ConfigInfo;
+import com.porasl.contentservices.domain.Config;
 
 public interface ConfigService
 {
-   public ConfigInfo createOrUpdate(ConfigInfo configInfo);
-   public List<ConfigInfo> getConfigInfos();
+   public Config createOrUpdate(Config configInfo);
+   public List<Config> getConfigInfos();
 	
 }

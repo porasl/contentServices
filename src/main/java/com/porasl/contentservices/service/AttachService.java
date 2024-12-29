@@ -2,17 +2,15 @@ package com.porasl.contentservices.service;
 
 import java.util.List;
 
-import com.porasl.contentservices.domain.AttachInfo;
+import com.porasl.contentservices.domain.Attach;
 
 public interface AttachService
 {
-   public AttachInfo createOrUpdate(AttachInfo attachInfo);
+   public Attach save(Attach attach);
    
-	public List<AttachInfo> getAttachments(long postinfoid);
+	public List<Attach> getAttachments(long postid);
 	
-	public void deleteAttachments(long postinfoid);
-
-	public void deleteAttachment(long postinfoid, long iteminfoid);
+	public boolean deleteAttachmentsByPostId(long postid);
 	
-	public void deleteAttachedItem(long iteminfoid);
+	public boolean deleteAttachmentById(long itemid);
 }

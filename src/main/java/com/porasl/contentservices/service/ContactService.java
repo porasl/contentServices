@@ -1,10 +1,10 @@
 package com.porasl.contentservices.service;
 
-import com.porasl.contentservices.domain.ContactInfo;
+import com.porasl.contentservices.domain.Contact;
 
 public interface ContactService
 {
-	public ContactInfo createOrUpdate(ContactInfo ContactInfo);
+	public Contact createOrUpdate(Contact ContactInfo);
 	public void addContactemail(long principalId, String newContactemail);
 	public void removeContactemail(long principalId, String contactemail);
 	public void removeAllContactemails(long principalId);
