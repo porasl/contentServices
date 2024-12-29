@@ -27,8 +27,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "attach")
-public class Attach {
+@Table(name = "attachment")
+public class Attachment {
 	private long attachinfoid;
 
 	@CreatedDate

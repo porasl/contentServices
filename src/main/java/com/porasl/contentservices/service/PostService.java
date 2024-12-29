@@ -1,16 +1,31 @@
 package com.porasl.contentservices.service;
 
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import com.porasl.contentservices.domain.Attachment;
 import com.porasl.contentservices.domain.Post;
+import com.porasl.contentservices.repository.PostRepository;
 
-public interface PostService
-{
-   public Post createOrUpdate(Post postInfo);
+import java.util.Optional;
 
-   public List<Post> getPosts(String userId);
- 
-   public Post getPost(String postId); 
-  
-   public void deletePost(String postId);
+@Service
+public class PostService {
+
+    private final PostRepository postRepository;
+
+    @Autowired
+    public PostService(PostRepository postRepository) {
+        this.postRepository = postRepository;
+    }
+
+    public Optional<Post> addAttachment(String postId, Attachment attachment) {
+        postRepository.addAttachment(postId, attachment);
+        return postRepository.findById(postId);
+    }
+
+    public Optional<Post> removeAttachment(String postId, String filename) {
+        postRepository.removeAttachment(postId, filename);
+        return postRepository.findById(postId);
+    }
 }
