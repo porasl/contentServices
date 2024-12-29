@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Item {
 
-	private long itemInfoId;
+	private long itemId;
 	private double version;	
 	private Locale locale;
 	private String size;
@@ -31,11 +31,11 @@ public class Item {
 	private Long publisherId;
 	private String type;
 	
-	public long getItemInfoId() {
-		return itemInfoId;
+	public long getItemId() {
+		return itemId;
 	}
-	public void setItemInfoId(long itemInfoId) {
-		this.itemInfoId = itemInfoId;
+	public void setItemId(long itemId) {
+		this.itemId = itemId;
 	}
 	public Locale getLocale() {
 		return locale;
