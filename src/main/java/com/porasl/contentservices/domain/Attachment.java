@@ -29,7 +29,7 @@ import lombok.NoArgsConstructor;
 @EntityListeners(AuditingEntityListener.class)
 @Table(name = "attachment")
 public class Attachment {
-	private long attachinfoid;
+	private long attachmentid;
 
 	@CreatedDate
 	@Column(nullable = false, updatable = false)
@@ -66,19 +66,19 @@ public class Attachment {
 	private String type;
 
 	@Column(nullable = false)
-	private Long postinfoid;
+	private Long postid;
 
 	@Id
-	@Column(name = "attachinfoid")
-	@TableGenerator(name = "attachinfo", table = "Attach_Pktb", pkColumnName = "attachKey", pkColumnValue = "attachValue", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.TABLE, generator = "attachinfo")
+	@Column(name = "attachmentid")
+	@TableGenerator(name = "attachment", table = "Attach_Pktb", pkColumnName = "attachKey", pkColumnValue = "attachValue", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.TABLE, generator = "attachment")
 
-	public long getAttachinfoid() {
-		return attachinfoid;
+	public long getAttachmentid() {
+		return attachmentid;
 	}
 
-	public void setAttachinfoid(long attachinfoid) {
-		this.attachinfoid = attachinfoid;
+	public void setAttachmentid(long attachmentid) {
+		this.attachmentid = attachmentid;
 	}
 
 }

@@ -56,7 +56,7 @@ public class Item {
     @Column(insertable = false)
     private Integer lastModifiedBy;
 	
-	private long iteminfoid;
+	private long itemid;
 
 	@Column(nullable=true)
 	private String type;
@@ -132,16 +132,16 @@ public class Item {
 	private String locale;
 	
 	@Id
-	@Column(name="iteminfoid")
-	@TableGenerator(name="iteminfo", table="Item_Pktb", 
+	@Column(name="itemid")
+	@TableGenerator(name="item", table="Item_Pktb", 
 	pkColumnName="itemKey", pkColumnValue="itemValue", allocationSize=1)
-	@GeneratedValue(strategy=GenerationType.TABLE, generator="iteminfo")
-	public long getIteminfoid() {
-		return iteminfoid;
+	@GeneratedValue(strategy=GenerationType.TABLE, generator="item")
+	public long getItemid() {
+		return itemid;
 	}
 	
-	public void setIteminfoid(long iteminfoid) {
-		this.iteminfoid = iteminfoid;
+	public void setItemid(long itemid) {
+		this.itemid = itemid;
 	}
 	
 }

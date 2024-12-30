@@ -3,8 +3,15 @@ package com.porasl.contentservices.content;
 import java.util.Date;
 import java.util.Locale;
 
+import com.porasl.contentservices.helper.StatusClient;
+
+import lombok.Data;
+
+import com.porasl.contentservices.helper.PublisherClient;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
+@Data
 @XmlRootElement
 public class Item {
 

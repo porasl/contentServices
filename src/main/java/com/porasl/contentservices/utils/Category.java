@@ -1,4 +1,4 @@
-package com.porasl.contentservices.content;
+package com.porasl.contentservices.utils;
 
 public enum Category {
 	AIRPLANE,
