@@ -1,3 +1,9 @@
+server:
+  port: 8082
+
+storage: 
+  location: /Users/hamidporasl/storage
+
 spring:
   jpa:
     show-sql: true
@@ -5,20 +11,11 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
-  datasource:
-    url: jdbc:mysql://localhost:3306/users
-    username: root
-    password: passw0rd
-    driverClassName: com.mysql.cj.jdbc.Driver
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    maxConnections: 25
+       format_sql: true
   data:
-    jpa:
-      repositories:
-        enabled: true
     mongodb:
-     uri: mongodb://localhost:27017/yourdatabase
+      uri: mongodb://localhost:27017/contents
+
   mvc:
     pathmatch:
       matching-strategy: ANT_PATH_MATCHER
@@ -26,12 +23,13 @@ spring:
   web:
     resources:
       static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+
 springdoc:
   api-docs:
     path: /v3/api-docs
   swagger-ui:
-    path:/swagger-ui.html
-   
+    path: /swagger-ui.html
+
 application:
   security:
     jwt:
@@ -39,4 +37,3 @@ application:
       expiration: 86400000 # a day
       refresh-token:
         expiration: 604800000 # 7 days
-  

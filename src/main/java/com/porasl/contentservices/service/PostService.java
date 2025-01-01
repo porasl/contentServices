@@ -12,20 +12,32 @@ import java.util.Optional;
 @Service
 public class PostService {
 
-    private final PostRepository postRepository;
+	@Autowired
+	private PostRepository postRepository;
 
-    @Autowired
-    public PostService(PostRepository postRepository) {
-        this.postRepository = postRepository;
-    }
+	public PostService(PostRepository postRepository) {
+		this.postRepository = postRepository;
+	}
 
-    public Optional<Post> addAttachment(String postId, Attachment attachment) {
-        postRepository.addAttachment(postId, attachment);
-        return postRepository.findById(postId);
-    }
+	public Optional<Post> addAttachment(String postId, Attachment attachment) {
+		postRepository.addAttachment(postId, attachment);
+		return postRepository.findById(postId);
+	}
 
-    public Optional<Post> removeAttachment(String postId, String filename) {
-        postRepository.removeAttachment(postId, filename);
-        return postRepository.findById(postId);
-    }
+	public Optional<Post> removeAttachment(String postId, String filename) {
+		postRepository.removeAttachment(postId, filename);
+		return postRepository.findById(postId);
+	}
+
+	public Post savePost(Post post) {
+		return postRepository.save(post);
+	}
+
+	public Optional<Post> getPostById(String id) {
+		return postRepository.findById(id);
+	}
+
+	public void deletePost(String id) {
+		postRepository.deleteById(id);
+	}
 }

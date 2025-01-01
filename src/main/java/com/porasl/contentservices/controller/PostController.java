@@ -11,12 +11,27 @@ import com.porasl.contentservices.service.PostService;
 @RestController
 @RequestMapping("/api/posts")
 public class PostController {
-    private final PostService postService;
 
     @Autowired
-    public PostController(PostService postService) {
-        this.postService = postService;
-    }
+    public PostService postService;
+    
+    @PostMapping 
+    public ResponseEntity<Post> createPost(@RequestBody Post post) { 
+    	return ResponseEntity.ok(postService.savePost(post)); 
+    	}
+    
+    @GetMapping("/{id}") 
+    public ResponseEntity<Post> getPost(@PathVariable String id) { 
+    	return postService.getPostById(id) 
+    			.map(ResponseEntity::ok) 
+    			.orElse(ResponseEntity.notFound().build()); 
+    	} 
+    
+    @DeleteMapping("/{id}") 
+    public ResponseEntity<Void> deletePost(@PathVariable String id) {
+    	postService.deletePost(id); 
+    	return ResponseEntity.noContent().build(); 
+    	}
 
     @PatchMapping("/{postId}/attachments/add")
     public ResponseEntity<Post> addAttachment(

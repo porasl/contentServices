@@ -54,13 +54,13 @@ public class Favorite {
     @Column(insertable = false)
     private Integer lastModifiedBy;
     
-		private long favoriteInfoid;
+		private long favoriteid;
 		
 		@Column(nullable=true)
 		private long userid;
 		
 		@Column(nullable=true)
-		private long itemInfoId;
+		private long itemId;
 		
 		@Column(nullable=true)
 		private String channelName;
@@ -72,51 +72,14 @@ public class Favorite {
 		private boolean liked;
 		
 		@Id
-		@Column(name="favoriteInfo")
-		@TableGenerator(name="favoriteInfo", table="favorite_Pktb", 
+		@Column(name="favoriteid")
+		@TableGenerator(name="favorite", table="favorite_Pktb", 
 		pkColumnName="favoriteKey", pkColumnValue="favoriteValue", allocationSize=1)
-		@GeneratedValue(strategy=GenerationType.TABLE, generator="favoriteInfo")
+		@GeneratedValue(strategy=GenerationType.TABLE, generator="favorite")
 		
-		public long getFavoriteInfoid() {
-			return favoriteInfoid;
+		public long getFavoriteid() {
+			return favoriteid;
 		}
 		
-		public void setFavoriteInfoid(long favoriteInfoid) {
-			this.favoriteInfoid = favoriteInfoid;
-		}
-		
-		public long getUserid() {
-			return userid;
-		}
-		
-		public void setUserid(long userid) {
-			this.userid = userid;
-		}
-		
-		public void setChannelName(String channelName) {
-			this.channelName = channelName;
-		}
-		
-		public String getChannelName() {
-			return channelName;
-		}
-		
-		public void setSubscribed(boolean subscribed) {
-			this.subscribed = subscribed;
-		}
-		
-		
-		public boolean isSubbscribed() {
-			return subscribed;
-		}
-		
-		public void setLiked(boolean liked) {
-			this.liked = liked;
-		}
-		
-		public boolean isLiked() {
-			return liked;
-		}
-
 }
 

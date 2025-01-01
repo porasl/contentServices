@@ -9,7 +9,6 @@ import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Objects;
 
-import org.springframework.boot.autoconfigure.amqp.RabbitProperties.Stream;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.codec.multipart.FilePart;
@@ -22,9 +21,18 @@ import com.porasl.contentservices.exception.StorageException;
 
 @Service
 public class StorageService {
+	
+	
     private final Path rootDir;
-
+    
+    private final StorageProperties storageProperties; 
+    
+    public String getStorageLocation() { 
+    	return storageProperties.getLocation(); 
+    	}
+    
     public StorageService(StorageProperties storageProperties) {
+    	this.storageProperties = storageProperties;
         this.rootDir = Paths.get(storageProperties.getLocation());
         try {
             Files.createDirectories(rootDir);
