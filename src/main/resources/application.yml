@@ -3,17 +3,26 @@ server:
 
 storage: 
   location: /Users/hamidporasl/storage
-
 spring:
+ jpa:
+   show-sql: true
+   hibernate:
+     ddl-auto: update
+   properties:
+     hibernate:
+       dialect: org.hibernate.dialect.MySQLDialect
+ datasource:
+   url: jdbc:mysql://localhost:3306/users
+   username: root
+   password: passw0rd
+   driverClassName: com.mysql.cj.jdbc.Driver
+   driver-class-name: com.mysql.cj.jdbc.Driver
+   maxConnections: 25
+ data:
   jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-       format_sql: true
-  data:
-    mongodb:
+   repositories:
+    enabled: true
+  mongodb:
       uri: mongodb://localhost:27017/contents
 
   mvc:
