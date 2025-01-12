@@ -12,7 +12,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @ComponentScan(basePackages = {"com.porasl.contentservices","com.porasl.authservices"})
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
-@EnableJpaRepositories(basePackages = "com.porasl.authservices.user")
+@EnableJpaRepositories(basePackages = {"com.porasl.authservices.user", "com.porasl.authservices.token"})
 
 public class ContentservicesApplication {
 
