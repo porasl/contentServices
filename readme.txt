@@ -24,3 +24,5 @@ db.createCollection("contents")
 show collections
 
 db.contents.find()  OR db["contents"].find()
+
+
