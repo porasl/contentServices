@@ -26,8 +26,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ContentController {
 
-    @Autowired
-    public PostService postService;
+    public final PostService postService;
     
     @Operation(summary = "Create Post")
     @PostMapping 
