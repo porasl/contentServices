@@ -17,7 +17,7 @@ public class VideoEncodingConsumer {
         try {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode node = mapper.readTree(messageJson);
-            String filePath = node.get("filePath").asText();
+            String filePath = node.get("filePath") != null ? node.get("filePath").asText(): null;
 
             // Run ffmpeg command
             ProcessBuilder pb = new ProcessBuilder(
