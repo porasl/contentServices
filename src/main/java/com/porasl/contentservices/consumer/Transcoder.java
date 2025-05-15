@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.porasl.contentservices.domain.ConfigInfo;
+import com.porasl.contentservices.domain.Config;
 import com.porasl.contentservices.service.ConfigService;
 import com.porasl.contentservices.service.FFMPGService;
 
@@ -67,7 +67,7 @@ public class Transcoder{
 	public HashMap getConfigInfoMap() {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		configService = (ConfigService) context.getBean("configService");
-		List<ConfigInfo> configInfos = configService.getConfigInfos();
+		List<Config> configInfos = configService.getConfigInfos();
 		HashMap configInfoMap = new HashMap();
 		configInfos.stream().forEach(configInfo -> {
 			configInfoMap.put(configInfo.getConfigName(), configInfo.getConfigValue());
