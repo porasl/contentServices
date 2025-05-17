@@ -148,8 +148,8 @@ import com.porasl.contentservices.helper.PostClient;
 		for(Attachment attachment : attachments){
 			JSONObject obj = new JSONObject();
 		try {
-			obj.put("attachmentid", attachment.getAttachmentid());
-			obj.put("itemid",attachment.getAttachmentid());
+			obj.put("id", attachment.getId());
+			obj.put("itemid",attachment.getId());
 			obj.put("postid", attachment.getPostid());
 			obj.put("videoPath", attachment.getVideoPath());
 			obj.put("imagePath",attachment.getImagePath());

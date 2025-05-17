@@ -4,21 +4,16 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.porasl.contentservices.domain.Attachment;
 
-public interface AttachRepository extends JpaRepository<Attachment, Integer> {
+public interface AttachRepository extends JpaRepository<Attachment, Long> {
 
- @Query(value = "select attach from Attach attach inner join User u on attach.userid = u.id where attach.userid = :id")
-  List<Attachment> findAllByUsetId(long userid);
- 
- @Query(value = "select attach from Attach attach where attach.postid = :id")
- List<Attachment> getAttachments(long postid);
+    @Query("SELECT attach FROM Attachment attach WHERE attach.postid = :postid")
+    List<Attachment> getAttachments(@Param("postid") Long postid);
 
+    void deleteById(Long id);
 
- boolean deleteAttachmentById(long attachid);
-
-
- boolean deleteAttachmentsByPostId(long postid);
-  
+    boolean deleteByPostid(Long postid);
 }

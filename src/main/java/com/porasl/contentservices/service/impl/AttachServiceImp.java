@@ -17,18 +17,19 @@ public class AttachServiceImp implements AttachService{
 	   return attachRepo.save(attach);
    }
    
-	public List<Attachment> getAttachments(long postid){
+	public List<Attachment> getAttachments(Long postid){
 		return attachRepo.getAttachments(postid);
-	}
-	
-	public boolean deleteAttachmentById(long attachid){
-		return attachRepo.deleteAttachmentById(attachid);
 	}
 
 	@Override
-	public boolean deleteAttachmentsByPostId(long postid) {
-		return attachRepo.deleteAttachmentsByPostId(postid);
-		
+	public boolean deleteAttachmentsByPostId(Long postid) {
+		return attachRepo.deleteByPostid(postid);
+	}
+
+	@Override
+	public boolean deleteAttachmentById(Long itemid) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

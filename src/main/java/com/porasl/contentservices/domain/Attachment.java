@@ -8,18 +8,9 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EntityListeners;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.TableGenerator;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+
+import lombok.*;
 
 @Data
 @Builder
@@ -29,56 +20,37 @@ import lombok.NoArgsConstructor;
 @EntityListeners(AuditingEntityListener.class)
 @Table(name = "attachment")
 public class Attachment {
-	private long attachmentid;
 
-	@CreatedDate
-	@Column(nullable = false, updatable = false)
-	private LocalDateTime createDate;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id") // ✅ This ensures the DB column is named correctly
+    private Long id;
 
-	@LastModifiedDate
-	@Column(insertable = false)
-	private LocalDateTime lastModified;
+    @CreatedDate
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createDate;
 
-	@CreatedBy
-	@Column(nullable = false, updatable = false)
-	private Integer createdBy;
+    @LastModifiedDate
+    @Column(insertable = false)
+    private LocalDateTime lastModified;
 
-	@LastModifiedBy
-	@Column(insertable = false)
-	private Integer lastModifiedBy;
+    @CreatedBy
+    @Column(nullable = false, updatable = false)
+    private Integer createdBy;
 
-	@Column(nullable = false)
-	private long iteminfoid;
+    @LastModifiedBy
+    @Column(insertable = false)
+    private Integer lastModifiedBy;
 
-	@Column(nullable = true)
-	private String videoPath;
+    @Column(nullable = false)
+    private long iteminfoid;
 
-	@Column(nullable = true)
-	private String audioPath;
+    private String videoPath;
+    private String audioPath;
+    private String imagePath;
+    private String filePath;
+    private String type;
 
-	@Column(nullable = true)
-	private String imagePath;
-
-	@Column(nullable = true)
-	private String filePath;
-
-	@Column(nullable = true)
-	private String type;
-
-	@Column(nullable = false)
-	private Long postid;
-
-	@Id
-	@Column(name = "attachmentid")
-	@TableGenerator(name = "attachment", table = "Attach_Pktb", pkColumnName = "attachKey", pkColumnValue = "attachValue", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.TABLE, generator = "attachment")
-
-	public long getAttachmentid() {
-		return attachmentid;
-	}
-
-	public void setAttachmentid(long attachmentid) {
-		this.attachmentid = attachmentid;
-	}
-
+    @Column(nullable = false)
+    private Long postid;
 }

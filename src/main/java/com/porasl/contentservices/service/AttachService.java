@@ -8,9 +8,9 @@ public interface AttachService
 {
    public Attachment save(Attachment attach);
    
-	public List<Attachment> getAttachments(long postid);
+	public List<Attachment> getAttachments(Long postid);
 	
-	public boolean deleteAttachmentsByPostId(long postid);
+	public boolean deleteAttachmentsByPostId(Long postid);
 	
-	public boolean deleteAttachmentById(long itemid);
+	public boolean deleteAttachmentById(Long itemid);
 }
