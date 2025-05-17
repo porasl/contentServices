@@ -1,0 +1,16 @@
+INSERT INTO config (configname, configvalue) VALUES ("imagedir","/Users/hamidporasl/webdata/images");
+INSERT INTO config (configname, configvalue) VALUES ("videodir","/Users/hamidporasl/webdata/videos");
+INSERT INTO config (configname, configvalue) VALUES ("audiodir","/Users/hamidporasl/webdata/audios");
+INSERT INTO config (configname, configvalue) VALUES ("filedir","/Users/hamidporasl/webdata/files");
+INSERT INTO config (configname, configvalue) VALUES ("profilepath","/Users/hamidporasl/webdata/profilepath");
+INSERT INTO config (configname, configvalue) VALUES ("serverlog","/Users/hamidporasl/webdata/logs");
+INSERT INTO config(configname, configvalue) VALUES ("defaultChannelIconPath","/Users/hamidporasl/webdata/images/defaultChannelIcon.png");
+INSERT INTO config (configname, configvalue) VALUES ("ffmpeg","d:/tools/ffmpeg/bin/ffmpeg.exe");
+INSERT INTO config(configName, configvalue) VALUES ("ffprobe","d:/tools/ffmpeg/bin/ffprobe.exe");
+INSERT INTO config(configname, configvalue) VALUES ("mail.transport.protocol","smtp");
+INSERT INTO config(configname, configvalue) VALUES ("mail.smtp.host","outlook.office365.com");
+INSERT INTO config(configname, configvalue) VALUES ("mail.smtp.auth","true");
+INSERT INTO config(configname, configvalue) VALUES ("mail.sender","xxxxxx");
+INSERT INTO config(configname, configvalue) VALUES ("mail.password","xxxxx");
+INSERT INTO config(configname, configvalue) VALUES ("mail.smtp.starttls.enable","true");
+INSERT INTO config(configname, configvalue) VALUES ("mail.smtp.port","587");

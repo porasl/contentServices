@@ -24,16 +24,16 @@ public class Post {
     private List<Comment> comments;
     private boolean isDeleted;
     private boolean isDisabled;
-    private boolean isPrivate;
+    private boolean isprivate;
     private Category category;
     private AccessType accessType;
     private State state;
-    private LocalDateTime createdTime;
-    private LocalDateTime updatedTime;
-    private LocalDateTime eventDate;
-    private LocalDateTime memoryDate;
+    private LocalDateTime createdtime;
+    private LocalDateTime updatedtime;
+    private LocalDateTime eventdate;
+    private LocalDateTime memorydate;
     private Locale locale;
     private String description;
-    private String deletedCode;
+    private String deletedcode;
    
 }

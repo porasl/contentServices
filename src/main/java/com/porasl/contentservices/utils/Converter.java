@@ -30,25 +30,25 @@ import com.porasl.contentservices.helper.PostClient;
 			.forEach(profile -> {
 				JSONObject obj = new JSONObject();
 				try {
-					obj.put("photo", profile.getIconName());
+					obj.put("photo", profile.getIconname());
 					obj.put("fullname", profile.getFullname());
 					obj.put("userid", profile.getUserid());
-					obj.put("birthDat", profile.getBirthDate());
+					obj.put("birthDat", profile.getBirthdate());
 					obj.put("city", profile.getCity());
 					obj.put("country", profile.getCountry());
-					obj.put("creationDate", profile.getCreationDate());
+					obj.put("creationDate", profile.getCreationdate());
 					obj.put("education", profile.getEducation());
 					obj.put("emailAddress", profile.getEmailaddress());
-					obj.put("freeTextProfile", profile.getFreeTextProfile());
-					obj.put("hashTags", profile.getHashTags());
-					obj.put("modificationDate", profile.getModificationDate());
+					obj.put("freeTextProfile", profile.getFreetextprofile());
+					obj.put("hashTags", profile.getHashtags());
+					obj.put("modificationDate", profile.getModificationdate());
 					obj.put("phonenumber", profile.getPhonenumber());
 					obj.put("school", profile.getSchool());
-					obj.put("searchKeys", profile.getSearechKeys());
+					obj.put("searchKeys", profile.getSearechkeys());
 					obj.put("locale", profile.getLocale());
 					obj.put("tags", profile.getTags());
-					obj.put("subscribeIds", profile.getSubscribedIds());
-					obj.put("hideinPublicSearch", profile.isHideInPublicsearch());
+					obj.put("subscribeIds", profile.getSubscribedids());
+					obj.put("hideinPublicSearch", profile.isHideinpublicsearch());
 					obj.put("workPlace", profile.getWorkplace());
 					obj.put("tags", profile.getTags());
 					obj.put("title", profile.getTitle());
@@ -75,19 +75,19 @@ import com.porasl.contentservices.helper.PostClient;
 				obj.put("description",item.getDescription());
 				obj.put("format",item.getFormat());
 				obj.put("oldfilename", item.getOldfilename());
-				if(item.getAudioPath() != null) {
-					obj.put("audioPath",URLDecoder.decode(item.getAudioPath(), "UTF-8"));
-				} else if(item.getImagePath() != null) {
-					obj.put("imagePath",URLDecoder.decode(item.getImagePath(), "UTF-8"));
-				}else if(item.getVideoPath() != null) {
-					obj.put("videoPath",URLDecoder.decode(item.getVideoPath(), "UTF-8"));
-				}else if(item.getFilePath() != null) {
-					obj.put("filePath",URLDecoder.decode(item.getFilePath(), "UTF-8"));
+				if(item.getAudiopath() != null) {
+					obj.put("audioPath",URLDecoder.decode(item.getAudiopath(), "UTF-8"));
+				} else if(item.getImagepath() != null) {
+					obj.put("imagePath",URLDecoder.decode(item.getImagepath(), "UTF-8"));
+				}else if(item.getVideopath() != null) {
+					obj.put("videoPath",URLDecoder.decode(item.getVideopath(), "UTF-8"));
+				}else if(item.getFilepath() != null) {
+					obj.put("filePath",URLDecoder.decode(item.getFilepath(), "UTF-8"));
 				}
-				obj.put("creationDate",item.getCreationDate());
-				obj.put("modificationDate",item.getModificationDate());
-				obj.put("expirationDate",item.getExpirationDate());
-				obj.put("deletionDate",item.getDeletionDate());
+				obj.put("creationDate",item.getCreationdate());
+				obj.put("modificationDate",item.getModificationdate());
+				obj.put("expirationDate",item.getExpirationdate());
+				obj.put("deletionDate",item.getDeletiondate());
 				obj.put("userId",item.getUserid());
 				obj.put("contentNames", contentNames);
 				jsonArray.add(obj);
@@ -112,11 +112,11 @@ import com.porasl.contentservices.helper.PostClient;
 			obj.put("locale",post.getLocale());
 			obj.put("accessType", post.getAccessType());
 			obj.put("deleted", post.isDeleted());
-			obj.put("deleteCode",post.getDeletedCode());
+			obj.put("deleteCode",post.getDeletedcode());
 			obj.put("isdeleted",post.isDeleted());
 			obj.put("state",post.getState());
 			obj.put("description",post.getDescription());
-			obj.put("eventDate",post.getEventDate());
+			obj.put("eventDate",post.getEventdate());
 			
 			//set a component for Attached items
 			
@@ -128,9 +128,9 @@ import com.porasl.contentservices.helper.PostClient;
 				description = post.getDescription();
 			}
 			obj.put("description", description);
-			obj.put("creationDate", post.getCreatedTime());
-			obj.put("modificationDate",post.getUpdatedTime());
-			obj.put("deletedCode", post.getDeletedCode());
+			obj.put("creationDate", post.getCreatedtime());
+			obj.put("modificationDate",post.getUpdatedtime());
+			obj.put("deletedCode", post.getDeletedcode());
 			obj.put("userId", "USER_ID");
 			obj.put("contentNames", contentNames);
 			jsonArray.add(obj);
@@ -151,10 +151,10 @@ import com.porasl.contentservices.helper.PostClient;
 			obj.put("id", attachment.getId());
 			obj.put("itemid",attachment.getId());
 			obj.put("postid", attachment.getPostid());
-			obj.put("videoPath", attachment.getVideoPath());
-			obj.put("imagePath",attachment.getImagePath());
-			obj.put("audioPath",attachment.getAudioPath());
-			obj.put("filePath",attachment.getFilePath());
+			obj.put("videoPath", attachment.getVideopath());
+			obj.put("imagePath",attachment.getImagepath());
+			obj.put("audioPath",attachment.getAudiopath());
+			obj.put("filePath",attachment.getFilepath());
 			obj.put("type",attachment.getType());
 			jsonArray.add(obj);
 		} catch (JSONException e) {
@@ -171,14 +171,14 @@ import com.porasl.contentservices.helper.PostClient;
 			JSONObject obj = new JSONObject();
 		try {
 			obj.put("commentinfoid", commentInfo.getCommentinfoid());
-			obj.put("itemId",commentInfo.getItemId());
+			obj.put("itemId",commentInfo.getItemid());
 			obj.put("postinfoid", commentInfo.getPostinfoid());
-			obj.put("commentText", commentInfo.getCommentText());
-			obj.put("userId", commentInfo.getUserId());
-			obj.put("totalLiked", commentInfo.getTotalLiked());
-			obj.put("totalUnLiked", commentInfo.getTotalUnLiked());
-			obj.put("creationDate",commentInfo.getCreationDate());
-			obj.put("modiifcationDate",commentInfo.getModificationDate());
+			obj.put("commentText", commentInfo.getCommenttext());
+			obj.put("userId", commentInfo.getUserid());
+			obj.put("totalLiked", commentInfo.getTotalliked());
+			obj.put("totalUnLiked", commentInfo.getTotalunliked());
+			obj.put("creationDate",commentInfo.getCreationdate());
+			obj.put("modiifcationDate",commentInfo.getModificationdate());
 			jsonArray.add(obj);
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -198,22 +198,22 @@ import com.porasl.contentservices.helper.PostClient;
 			obj.put("locale",post.getLocale());
 			obj.put("accessType", post.getAccessType());
 			obj.put("deleted", post.isDeleted());
-			obj.put("deleteCode",post.getDeletedCode());
+			obj.put("deleteCode",post.getDeletedcode());
 			
 			obj.put("state",post.getState());
 			if(post.getDescription() != null) {
 				obj.put("description", URLDecoder.decode(post.getDescription(),  StandardCharsets.UTF_8));
 			}
 			
-			obj.put("eventDate",post.getEventDate());
-			obj.put("memoryDate",post.getMemoryDate());
+			obj.put("eventDate",post.getEventdate());
+			obj.put("memoryDate",post.getMemorydate());
 			
 			//set comments 
 			obj.put("comments", commentsInfoToString(postClient.getComments()));
 
 			//set attachments
 			obj.put("attachments", attachmentToString(postClient.getAttachments()));
-			obj.put("creationDate", post.getCreatedTime());
+			obj.put("creationDate", post.getCreatedtime());
 			jsonArray.add(obj);
 
 		} catch (JSONException e) {
@@ -230,31 +230,31 @@ import com.porasl.contentservices.helper.PostClient;
 		try {
 		obj.put("profileinfoid", profileInfo.getProfileinfoid());
 		obj.put("userid",profileInfo.getUserid());
-		obj.put("birthDate", profileInfo.getBirthDate());
-		obj.put("hideinpublicsearch", profileInfo.isHideInPublicsearch());
+		obj.put("birthDate", profileInfo.getBirthdate());
+		obj.put("hideinpublicsearch", profileInfo.isHideinpublicsearch());
 		obj.put("city", profileInfo.getCity());
-		obj.put("creationDate",profileInfo.getCreationDate());
-		obj.put("modificationDate", profileInfo.getModificationDate());
+		obj.put("creationDate",profileInfo.getCreationdate());
+		obj.put("modificationDate", profileInfo.getModificationdate());
 		obj.put("country", profileInfo.getCountry());
 		obj.put("fullname", profileInfo.getFullname());
-		obj.put("photopath", profileInfo.getIconName());
+		obj.put("photopath", profileInfo.getIconname());
 		obj.put("title", profileInfo.getTitle());
-		obj.put("iconName", profileInfo.getIconName());
+		obj.put("iconName", profileInfo.getIconname());
 		obj.put("school", profileInfo.getSchool());
 		obj.put("workplace", profileInfo.getWorkplace());
 		obj.put("education", profileInfo.getEducation());
-		obj.put("freeTextProfile", profileInfo.getFreeTextProfile());
+		obj.put("freeTextProfile", profileInfo.getFreetextprofile());
 		obj.put("title", profileInfo.getTitle());
 		obj.put("locale", profileInfo.getLocale());
 		obj.put("phonenumber", profileInfo.getPhonenumber());
 		obj.put("emailaddress", profileInfo.getEmailaddress());
-		obj.put("searechKeys", profileInfo.getSearechKeys());
-		obj.put("hideInPublicsearch", profileInfo.isHideInPublicsearch());
-		obj.put("hashTags", profileInfo.getHashTags());
-		obj.put("subscribedIds", profileInfo.getSubscribedIds());
+		obj.put("searechKeys", profileInfo.getSearechkeys());
+		obj.put("hideInPublicsearch", profileInfo.isHideinpublicsearch());
+		obj.put("hashTags", profileInfo.getHashtags());
+		obj.put("subscribedIds", profileInfo.getSubscribedids());
 		obj.put("tags", profileInfo.getTags());
 		obj.put("userid", profileInfo.getUserid());
-		obj.put("creationDate", profileInfo.getCreationDate());
+		obj.put("creationDate", profileInfo.getCreationdate());
 		jsonArray.add(obj);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

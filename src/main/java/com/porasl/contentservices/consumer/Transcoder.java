@@ -70,7 +70,7 @@ public class Transcoder{
 		List<Config> configInfos = configService.getConfigInfos();
 		HashMap configInfoMap = new HashMap();
 		configInfos.stream().forEach(configInfo -> {
-			configInfoMap.put(configInfo.getConfigName(), configInfo.getConfigValue());
+			configInfoMap.put(configInfo.getConfigname(), configInfo.getConfigvalue());
 		});
 		return configInfoMap;
 	}

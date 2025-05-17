@@ -37,11 +37,11 @@ public class Relational_Post {
             nullable = false,
             updatable = false
     )
-    private LocalDateTime createDate;
+    private LocalDateTime createdate;
 
     @LastModifiedDate
     @Column(insertable = false)
-    private LocalDateTime lastModified;
+    private LocalDateTime lastmodified;
 
 
     @CreatedBy
@@ -49,11 +49,11 @@ public class Relational_Post {
             nullable = false,
             updatable = false
     )
-    private Integer createdBy;
+    private Integer createdby;
 
     @LastModifiedBy
     @Column(insertable = false)
-    private Integer lastModifiedBy;
+    private Integer lastmodifiedby;
 	
 	private long postid;
    
@@ -77,27 +77,27 @@ public class Relational_Post {
 	
 	@Column(nullable=true)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date expirationDate;
+	private Date expirationdate;
 	
 	@Column(nullable=false)
 	@Temporal(TemporalType.TIMESTAMP)
-	public Date creationDate;
+	public Date creationdate;
 
 	@Column(nullable=true)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date modificationDate;
+	private Date modificationdate;
 	
 	@Column(nullable=true)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date deletionDate;
+	private Date deletiondate;
 	
 	@Column(nullable=true)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date eventDate;
+	private Date eventdate;
 	
 	@Column(nullable=true)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date memoryDate;
+	private Date memorydate;
 	
 	@Column(nullable=false)
 	private int deletecode;
@@ -109,10 +109,10 @@ public class Relational_Post {
 	private String state;
 	
 	@Column(nullable=false)
-	private String publicAccessType;
+	private String publicaccesstype;
 	
 	@Column(nullable=true)
-	private String secureCode;
+	private String securecode;
 	
 	@Column(nullable=false)
 	private int likes;
@@ -121,7 +121,7 @@ public class Relational_Post {
 	@Id
 	@Column(name="postid")
 	@TableGenerator(name="post", table="Post_Pktb", 
-	pkColumnName="postKey", pkColumnValue="postValue", allocationSize=1)
+	pkColumnName="postkey", pkColumnValue="postvalue", allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.TABLE, generator="post")
 	public long getPostid() {
 		return postid;

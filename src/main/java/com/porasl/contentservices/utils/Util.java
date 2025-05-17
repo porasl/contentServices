@@ -58,7 +58,7 @@ public class Util {
 	List<Config> configInfos = configService.getConfigInfos();
 	HashMap configHashMap = new HashMap();
 	configInfos.stream().forEach(configInfo -> { 
-		configHashMap.put(configInfo.getConfigName(), configInfo.getConfigValue());
+		configHashMap.put(configInfo.getConfigname(), configInfo.getConfigvalue());
      }); 
 	
 	return configHashMap;

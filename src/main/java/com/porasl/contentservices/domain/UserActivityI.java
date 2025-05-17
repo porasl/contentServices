@@ -32,19 +32,19 @@ public class UserActivityI {
 
 	@CreatedDate
 	@Column(nullable = false, updatable = false)
-	private LocalDateTime createDate;
+	private LocalDateTime createdate;
 
 	@LastModifiedDate
 	@Column(insertable = false)
-	private LocalDateTime lastModified;
+	private LocalDateTime lastmodified;
 
 	@CreatedBy
 	@Column(nullable = false, updatable = false)
-	private Integer createdBy;
+	private Integer createdby;
 
 	@LastModifiedBy
 	@Column(insertable = false)
-	private Integer lastModifiedBy;
+	private Integer lastmodifiedby;
 
 	private long useractivityinfoid;
 
@@ -52,18 +52,18 @@ public class UserActivityI {
 	private String action;
 
 	@Column(nullable = true)
-	private long visitedChannelid;
+	private long visitedchannelid;
 
 	@Column(nullable = true)
 	private long userid;
 
 	@Column(nullable = true)
 	@Temporal(TemporalType.TIMESTAMP)
-	public Date creationDate;
+	public Date creationdate;
 
 	@Id
 	@Column(name = "useractivityinfoid")
-	@TableGenerator(name = "useractivityinfo", table = "useractivity_Pktb", pkColumnName = "useractivityKey", pkColumnValue = "useractivityValue", allocationSize = 1)
+	@TableGenerator(name = "useractivityinfo", table = "useractivity_Pktb", pkColumnName = "useractivitykey", pkColumnValue = "useractivityvalue", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.TABLE, generator = "useractivityinfo")
 
 	public long getUseractivityinfoid() {

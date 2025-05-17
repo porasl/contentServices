@@ -25,27 +25,27 @@ public class Attachment {
     @GeneratedValue
     private Long id;
     
-    private String videoPath;
-    private String audioPath;
-    private String imagePath;
-    private String filePath;
+    private String videopath;
+    private String audiopath;
+    private String imagepath;
+    private String filepath;
     private String type;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
-    private LocalDateTime createDate;
+    private LocalDateTime createdate;
 
     @LastModifiedDate
     @Column(insertable = false)
-    private LocalDateTime lastModified;
+    private LocalDateTime lastmodified;
 
     @CreatedBy
     @Column(nullable = false, updatable = false)
-    private Integer createdBy;
+    private Integer createdby;
 
     @LastModifiedBy
     @Column(insertable = false)
-    private Integer lastModifiedBy;
+    private Integer lastmodifiedby;
 
     @Column(nullable = false)
     private long iteminfoid;

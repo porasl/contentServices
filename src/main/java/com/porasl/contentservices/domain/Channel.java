@@ -37,11 +37,11 @@ public class Channel {
 	            nullable = false,
 	            updatable = false
 	    )
-	    private LocalDateTime createDate;
+	    private LocalDateTime createdate;
 
 	    @LastModifiedDate
 	    @Column(insertable = false)
-	    private LocalDateTime lastModified;
+	    private LocalDateTime lastmodified;
 
 
 	    @CreatedBy
@@ -49,19 +49,19 @@ public class Channel {
 	            nullable = false,
 	            updatable = false
 	    )
-	    private Integer createdBy;
+	    private Integer createdby;
 
 	    @LastModifiedBy
 	    @Column(insertable = false)
-	    private Integer lastModifiedBy;
+	    private Integer lastmodifiedby;
 
 		private long channelinfoid;
 		
 		@Column(nullable=false)
-		private String iconPath;
+		private String iconpath;
 		
 		@Column(nullable=true)
-		private String channelName;
+		private String channelname;
 		
 		@Column(nullable=false)
 		private long userid;
@@ -70,10 +70,10 @@ public class Channel {
 		private String category;
 		
 		@Column(nullable=false)
-		private String channelTags;
+		private String channeltags;
 		
 		@Column(nullable=false)
-		private String channelHashTags;
+		private String channelhashtags;
 		
 		@Column(nullable=false)
 		private String scope;
@@ -86,14 +86,14 @@ public class Channel {
 		
 		@Column(nullable=true)
 		@Temporal(TemporalType.TIMESTAMP)
-		public Date creationDate;
+		public Date creationdate;
 		
 		@Column(nullable=true)
 		@Temporal(TemporalType.TIMESTAMP)
-		public Date modificationDate;
+		public Date modificationdate;
 		
 		@Column(nullable=true)
-		public long channelView;
+		public long channelview;
 
 		@Column(nullable=true)
 		public String locale;
@@ -130,14 +130,14 @@ public class Channel {
 			this.active = active;
 		}
 
-		public long getChannelView() {
-			return channelView;
+		public long getChannelview() {
+			return channelview;
 		}
 		
 		@Id
 		@Column(name="channelinfoid")
 		@TableGenerator(name="channelinfo", table="Channel_Pktb", 
-		pkColumnName="channelKey", pkColumnValue="channelValue", allocationSize=1)
+		pkColumnName="channelkey", pkColumnValue="channelvalue", allocationSize=1)
 		@GeneratedValue(strategy=GenerationType.TABLE, generator="channelinfo")
 		
 		public long getChannelinfoid() {

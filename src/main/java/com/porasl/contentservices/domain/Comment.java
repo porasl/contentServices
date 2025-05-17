@@ -36,11 +36,11 @@ public class Comment {
             nullable = false,
             updatable = false
     )
-    private LocalDateTime createDate;
+    private LocalDateTime createdate;
 
     @LastModifiedDate
     @Column(insertable = false)
-    private LocalDateTime lastModified;
+    private LocalDateTime lastmodified;
 
 
     @CreatedBy
@@ -48,26 +48,26 @@ public class Comment {
             nullable = false,
             updatable = false
     )
-    private Integer createdBy;
+    private Integer createdby;
 
     @LastModifiedBy
     @Column(insertable = false)
-    private Integer lastModifiedBy;
+    private Integer lastmodifiedby;
 	
 	@Column(nullable=true)
-	private long itemId;
+	private long itemid;
 	
 	@Column(nullable=true)
-	private long userId;
+	private long userid;
 	
 	@Column(nullable=true)
-	private String commentText;
+	private String commenttext;
 	
 	@Column(nullable=false)
-	private Date creationDate;
+	private Date creationdate;
 	
 	@Column(nullable=true)
-	private Date modificationDate;
+	private Date modificationdate;
 	
 	@Column(nullable=false)
 	private long postinfoid;
@@ -76,18 +76,18 @@ public class Comment {
 	private long commentinfoid;
 	
 	@Column(nullable=false)
-	private long totalLiked;
+	private long totalliked;
 	
 	@Column(nullable=false)
-	private long totalUnLiked;
+	private long totalunliked;
 	
 	@Column(nullable=false)
-	private String commentType;
+	private String commenttype;
 	
 	@Id
 	@Column(name="commentinfoid")
 	@TableGenerator(name="commentinfo", table="comment_Pktb", 
-	pkColumnName="commentKey", pkColumnValue="commentValue", allocationSize=1)
+	pkColumnName="commentkey", pkColumnValue="commentvalue", allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.TABLE, generator="commentinfo")
 	
 	public long getCommentinfoid() {

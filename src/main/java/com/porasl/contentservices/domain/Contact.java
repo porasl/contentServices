@@ -36,11 +36,11 @@ public class Contact {
             nullable = false,
             updatable = false
     )
-    private LocalDateTime createDate;
+    private LocalDateTime createdate;
 
     @LastModifiedDate
     @Column(insertable = false)
-    private LocalDateTime lastModified;
+    private LocalDateTime lastmodified;
 
 
     @CreatedBy
@@ -48,16 +48,16 @@ public class Contact {
             nullable = false,
             updatable = false
     )
-    private Integer createdBy;
+    private Integer createdby;
 
     @LastModifiedBy
     @Column(insertable = false)
-    private Integer lastModifiedBy;
+    private Integer lastmodifiedby;
     
 	private long contactinfoid;
 	
 	@Column(nullable=true)
-	private long principallId;
+	private long principallid;
 	
 	@Column(nullable=true)
 	private String contactemails;
@@ -66,7 +66,7 @@ public class Contact {
 	@Id
 	@Column(name="contactinfoid")
 	@TableGenerator(name="contactinfo", table="contact_Pktb", 
-	pkColumnName="contactKey", pkColumnValue="contactValue", allocationSize=1)
+	pkColumnName="contactKey", pkColumnValue="contactvalue", allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.TABLE, generator="contactinfo")
 	public long getContactinfoid() {
 		return contactinfoid;

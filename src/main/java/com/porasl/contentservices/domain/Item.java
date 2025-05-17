@@ -38,11 +38,11 @@ public class Item {
             nullable = false,
             updatable = false
     )
-    private LocalDateTime createDate;
+    private LocalDateTime createdate;
 
     @LastModifiedDate
     @Column(insertable = false)
-    private LocalDateTime lastModified;
+    private LocalDateTime lastmodified;
 
 
     @CreatedBy
@@ -50,11 +50,11 @@ public class Item {
             nullable = false,
             updatable = false
     )
-    private Integer createdBy;
+    private Integer createdby;
 
     @LastModifiedBy
     @Column(insertable = false)
-    private Integer lastModifiedBy;
+    private Integer lastmodifiedby;
 	
 	private long itemid;
 
@@ -83,44 +83,44 @@ public class Item {
 	private String format;
 	
 	@Column(nullable=true)
-	private String audioPath;
+	private String audiopath;
 	
 	@Column(nullable=true)
-	private String imagePath;
+	private String imagepath;
 	
 	@Column(nullable=true)
-	private String videoPath;
+	private String videopath;
 	
 	@Column(nullable=true)
-	private String filePath;
-	
-	@Column(nullable=true)
-	@Temporal(TemporalType.TIMESTAMP)
-	public Date creationDate;
+	private String filepath;
 	
 	@Column(nullable=true)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date modificationDate;
+	public Date creationdate;
+	
+	@Column(nullable=true)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date modificationdate;
 
 	@Column(nullable=true)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date expirationDate;
+	private Date expirationdate;
 	
 	@Column(nullable=true)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date deletionDate;
+	private Date deletiondate;
 
 	@Column(nullable=true)
 	private Long userid;
 	
 	@Column(nullable=true)
-	private String commentIds;
+	private String commentids;
 	
 	@Column(nullable=true)
-	private boolean hlsTranscoded;
+	private boolean hlstranscoded;
 	
 	@Column(nullable=true)
-	private boolean imageTranscoded;
+	private boolean imagetranscoded;
 	
 	@Column(nullable=true)
 	private boolean completed;
@@ -134,7 +134,7 @@ public class Item {
 	@Id
 	@Column(name="itemid")
 	@TableGenerator(name="item", table="Item_Pktb", 
-	pkColumnName="itemKey", pkColumnValue="itemValue", allocationSize=1)
+	pkColumnName="itemkey", pkColumnValue="itemvalue", allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.TABLE, generator="item")
 	public long getItemid() {
 		return itemid;

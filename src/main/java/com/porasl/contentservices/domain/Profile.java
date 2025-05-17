@@ -40,11 +40,11 @@ public class Profile {
             nullable = false,
             updatable = false
     )
-    private LocalDateTime createDate;
+    private LocalDateTime createdate;
 
     @LastModifiedDate
     @Column(insertable = false)
-    private LocalDateTime lastModified;
+    private LocalDateTime lastmodified;
 
 
     @CreatedBy
@@ -52,17 +52,17 @@ public class Profile {
             nullable = false,
             updatable = false
     )
-    private Integer createdBy;
+    private Integer createdby;
 
     @LastModifiedBy
     @Column(insertable = false)
-    private Integer lastModifiedBy;
+    private Integer lastmodifiedby;
     
 
 		private long profileinfoid;
 		
 		@Column(nullable=true)
-		private String iconName;
+		private String iconname;
 		
 		@Column(nullable=true)
 		private String school;
@@ -74,7 +74,7 @@ public class Profile {
 		private String education;
 		
 		@Column(nullable=true)
-		private String freeTextProfile;
+		private String freetextprofile;
 		
 		@Column(nullable=true)
 		private String fullname;
@@ -98,16 +98,16 @@ public class Profile {
 		private String emailaddress;
 		
 		@Column(nullable=true)
-		private String searechKeys;
+		private String searechkeys;
 		
 		@Column(nullable=true)
-		private boolean hideInPublicsearch;
+		private boolean hideinpublicsearch;
 
 		@Column(nullable=true)
-		private String subscribedIds;
+		private String subscribedids;
 		
 		@Column(nullable=true)
-		private String hashTags;
+		private String hashtags;
 		
 		@Column(nullable=true)
 		private String tags;
@@ -117,20 +117,20 @@ public class Profile {
 		
 		@Column(nullable=true)
 		@Temporal(TemporalType.TIMESTAMP)
-		public Date creationDate;
+		public Date creationdate;
 		
 		@Column(nullable=true)
 		@Temporal(TemporalType.TIMESTAMP)
-		public Date modificationDate;
+		public Date modificationdate;
 		
 		@Column(nullable=true)
 		@Temporal(TemporalType.TIMESTAMP)
-		public Date birthDate;
+		public Date birthdate;
 		
 		@Id
 		@Column(name="profileinfoid")
 		@TableGenerator(name="profileinfo", table="profile_Pktb", 
-		pkColumnName="profileKey", pkColumnValue="profileValue", allocationSize=1)
+		pkColumnName="profilekey", pkColumnValue="profilevalue", allocationSize=1)
 		@GeneratedValue(strategy=GenerationType.TABLE, generator="profileinfo")
 		public long getProfileinfoid() {
 			return profileinfoid;

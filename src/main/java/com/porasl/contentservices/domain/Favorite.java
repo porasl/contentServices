@@ -36,11 +36,11 @@ public class Favorite {
             nullable = false,
             updatable = false
     )
-    private LocalDateTime createDate;
+    private LocalDateTime createdate;
 
     @LastModifiedDate
     @Column(insertable = false)
-    private LocalDateTime lastModified;
+    private LocalDateTime lastmodified;
 
 
     @CreatedBy
@@ -48,11 +48,11 @@ public class Favorite {
             nullable = false,
             updatable = false
     )
-    private Integer createdBy;
+    private Integer createdby;
 
     @LastModifiedBy
     @Column(insertable = false)
-    private Integer lastModifiedBy;
+    private Integer lastmodifiedby;
     
 		private long favoriteid;
 		
@@ -60,10 +60,10 @@ public class Favorite {
 		private long userid;
 		
 		@Column(nullable=true)
-		private long itemId;
+		private long itemid;
 		
 		@Column(nullable=true)
-		private String channelName;
+		private String channelname;
 		
 		@Column(nullable=true)
 		private boolean subscribed;
@@ -74,7 +74,7 @@ public class Favorite {
 		@Id
 		@Column(name="favoriteid")
 		@TableGenerator(name="favorite", table="favorite_Pktb", 
-		pkColumnName="favoriteKey", pkColumnValue="favoriteValue", allocationSize=1)
+		pkColumnName="favoritekey", pkColumnValue="favoritevalue", allocationSize=1)
 		@GeneratedValue(strategy=GenerationType.TABLE, generator="favorite")
 		
 		public long getFavoriteid() {
