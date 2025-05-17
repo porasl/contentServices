@@ -18,13 +18,18 @@ import lombok.*;
 @AllArgsConstructor
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "attachment")
+@Table(name = "attechment")
 public class Attachment {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id") // ✅ This ensures the DB column is named correctly
+    @GeneratedValue
     private Long id;
+    
+    private String videoPath;
+    private String audioPath;
+    private String imagePath;
+    private String filePath;
+    private String type;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
@@ -44,12 +49,6 @@ public class Attachment {
 
     @Column(nullable = false)
     private long iteminfoid;
-
-    private String videoPath;
-    private String audioPath;
-    private String imagePath;
-    private String filePath;
-    private String type;
 
     @Column(nullable = false)
     private Long postid;
