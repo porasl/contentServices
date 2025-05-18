@@ -17,7 +17,7 @@ public class VideoEncodingConsumer {
         try {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode node = mapper.readTree(messageJson);
-            String filePath = node.get("filePath") != null ? node.get("filePath").asText(): null;
+            String filePath = node.get("videoTranscode") != null ? node.get("videoTranscode").asText(): null;
 
            VideoTranscoder transcoder = new VideoTranscoder(filePath);
            transcoder.transcode();
