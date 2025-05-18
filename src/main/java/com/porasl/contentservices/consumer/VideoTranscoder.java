@@ -49,7 +49,11 @@ public class VideoTranscoder {
                     .setVideoBitRate(762_800)
                     .setVideoFrameRate(30, 1)
                     .setStrict(FFmpegBuilder.Strict.STRICT)
-                    .addExtraArgs("-hls_time", "10", "-hls_list_size", "0")
+                    .addExtraArgs(
+                            "-vf", "drawtext=text='Inrik.com':fontcolor=white:fontsize=24:x=10:y=10",
+                            "-hls_time", "10",
+                            "-hls_list_size", "0"
+                        )
                     .done();
 
             FFmpegExecutor executor = new FFmpegExecutor(ffmpeg, ffprobe);
