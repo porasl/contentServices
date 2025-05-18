@@ -49,7 +49,7 @@ public class VideoTranscoder {
                     .setVideoBitRate(762_800)
                     .setVideoFrameRate(30, 1)
                     .setStrict(FFmpegBuilder.Strict.STRICT)
-                    .addExtraArgs("-hls_wrap", "0", "-hls_time", "10", "-hls_list_size", "0")
+                    .addExtraArgs("-hls_time", "10", "-hls_list_size", "0")
                     .done();
 
             FFmpegExecutor executor = new FFmpegExecutor(ffmpeg, ffprobe);
