@@ -1,15 +1,9 @@
 package com.porasl.contentservices.utils;
 
-import java.util.HashMap;
-import java.util.List;
-
 import javax.servlet.http.Part;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.porasl.contentservices.domain.Config;
-import com.porasl.contentservices.service.ChannelService;
 import com.porasl.contentservices.service.ConfigService;
 
 public class Util {
@@ -52,15 +46,4 @@ public class Util {
 		return "";
 	}
 	
- public static HashMap getConfigData() {
-	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-	configService = (ConfigService) context.getBean("configService");
-	List<Config> configInfos = configService.getConfigInfos();
-	HashMap configHashMap = new HashMap();
-	configInfos.stream().forEach(configInfo -> { 
-		configHashMap.put(configInfo.getConfigname(), configInfo.getConfigvalue());
-     }); 
-	
-	return configHashMap;
- }
 }

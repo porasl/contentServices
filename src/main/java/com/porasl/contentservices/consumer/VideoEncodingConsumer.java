@@ -19,15 +19,9 @@ public class VideoEncodingConsumer {
             JsonNode node = mapper.readTree(messageJson);
             String filePath = node.get("filePath") != null ? node.get("filePath").asText(): null;
 
-            // Run ffmpeg command
-            ProcessBuilder pb = new ProcessBuilder(
-                "ffmpeg", "-i", filePath,
-                "-codec: copy", "-start_number", "0", "-hls_time", "10",
-                "-hls_list_size", "0", "-f", "hls", filePath + ".m3u8"
-            );
-            Process process = pb.inheritIO().start();
-            process.waitFor();
-
+           VideoTranscoder transcoder = new VideoTranscoder(filePath);
+           transcoder.transcode();
+           
             System.out.println("Encoding complete for: " + filePath);
 
         } catch (Exception e) {
