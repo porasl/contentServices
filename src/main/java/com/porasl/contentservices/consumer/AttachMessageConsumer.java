@@ -1,5 +1,8 @@
 package com.porasl.contentservices.consumer;
 
+import java.time.LocalDateTime;
+
+import org.apache.tools.ant.types.resources.comparators.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
@@ -10,6 +13,7 @@ import com.porasl.contentservices.domain.Attachment;
 import com.porasl.contentservices.repository.AttachRepository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.time.LocalDateTime;
 
 @Service
 public class AttachMessageConsumer {
@@ -34,14 +38,33 @@ public class AttachMessageConsumer {
             // Now extract fields
             String postId = attachNode.get("postId").asText();
             String type = attachNode.get("type").asText();
+            
+            Attachment attachment = new Attachment();
+            attachment.setType(type);
+            switch (type) {
+		    case "VIDEO":
+		        attachment.setVideopath(attachNode.get("videopath").asText());
+		        break;
+		    case "AUDIO":
+		        type = "AUDIO";
+		        attachment.setAudiopath(attachNode.get("audiopath").asText());
+		        break;
+		    case "IMAGE":
+		    		attachment.setAudiopath(attachNode.get("imagepath").asText());
+		        break;
+		    default:
+		    		attachment.setAudiopath(attachNode.get("filepath").asText());
+            }
             String userId = attachNode.get("userId").asText();
             String videopath = attachNode.get("videopath").asText();
             
-            Attachment attachment = new Attachment();
-            attachment.setCreatedate(null);
-            attachment.setCreatedby(null);
+            attachment.setCreatedate(LocalDateTime.now());
+            attachment.setCreatedby(userId);
+            attachment.setLastmodifiedby(userId);
             attachment.setFilepath(videopath);
-            attachment.setPostid(null);   //TODO ......
+            attachment.setPostid(null);   
+            attachment.setLastmodified(LocalDateTime.now());
+            attachment.setType(type);
 
             System.out.println("postId: " + postId);
             System.out.println("type: " + type);

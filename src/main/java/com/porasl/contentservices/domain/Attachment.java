@@ -30,6 +30,8 @@ public class Attachment {
     private String imagepath;
     private String filepath;
     private String type;
+    private String createdby;
+    private String lastmodifiedby;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
@@ -38,17 +40,6 @@ public class Attachment {
     @LastModifiedDate
     @Column(insertable = false)
     private LocalDateTime lastmodified;
-
-    @CreatedBy
-    @Column(nullable = false, updatable = false)
-    private Integer createdby;
-
-    @LastModifiedBy
-    @Column(insertable = false)
-    private Integer lastmodifiedby;
-
-    @Column(nullable = false)
-    private long iteminfoid;
 
     @Column(nullable = false)
     private Long postid;
