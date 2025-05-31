@@ -2,7 +2,6 @@ package com.porasl.contentservices.consumer;
 
 import java.time.LocalDateTime;
 
-import org.apache.tools.ant.types.resources.comparators.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
@@ -11,9 +10,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.porasl.contentservices.domain.Attachment;
 import com.porasl.contentservices.repository.AttachRepository;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.time.LocalDateTime;
+import com.porasl.contentservices.utils.UUIDGenerator;
 
 @Service
 public class AttachMessageConsumer {
@@ -36,7 +33,7 @@ public class AttachMessageConsumer {
             JsonNode attachNode = mapper.readTree(innerJson);
 
             // Now extract fields
-            String postId = attachNode.get("postId").asText();
+            String postCode = attachNode.get("postCode").asText();
             String type = attachNode.get("type").asText();
             
             Attachment attachment = new Attachment();
@@ -62,11 +59,16 @@ public class AttachMessageConsumer {
             attachment.setCreatedby(userId);
             attachment.setLastmodifiedby(userId);
             attachment.setFilepath(videopath);
+            if(!postCode.equals("")) {
+            	 postCode = UUIDGenerator.generateUUID();
+            }
             attachment.setPostid(null);   
             attachment.setLastmodified(LocalDateTime.now());
             attachment.setType(type);
+            
+            attachRepo.save(attachment);
 
-            System.out.println("postId: " + postId);
+            System.out.println("postCode: " + postCode);
             System.out.println("type: " + type);
             System.out.println("userId: " + userId);
             System.out.println("videopath: " + videopath);
