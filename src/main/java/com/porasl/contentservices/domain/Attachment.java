@@ -32,6 +32,7 @@ public class Attachment {
     private String type;
     private String createdby;
     private String lastmodifiedby;
+    private String postcode;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
@@ -41,6 +42,6 @@ public class Attachment {
     @Column(insertable = false)
     private LocalDateTime lastmodified;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Long postid;
 }

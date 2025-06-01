@@ -1,6 +1,8 @@
 package com.porasl.contentservices.consumer;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -9,7 +11,12 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.porasl.contentservices.domain.Attachment;
+import com.porasl.contentservices.domain.Comment;
+import com.porasl.contentservices.domain.Post;
 import com.porasl.contentservices.repository.AttachRepository;
+import com.porasl.contentservices.utils.AccessType;
+import com.porasl.contentservices.utils.Category;
+import com.porasl.contentservices.utils.State;
 import com.porasl.contentservices.utils.UUIDGenerator;
 
 @Service
@@ -61,8 +68,12 @@ public class AttachMessageConsumer {
             attachment.setFilepath(videopath);
             if(!postCode.equals("")) {
             	 postCode = UUIDGenerator.generateUUID();
+            	 //Create a post
+            	 
+            }else {
+            	
             }
-            attachment.setPostid(null);   
+            attachment.setPostcode(postCode);   
             attachment.setLastmodified(LocalDateTime.now());
             attachment.setType(type);
             
@@ -79,5 +90,25 @@ public class AttachMessageConsumer {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    private Post constructPost(String title,boolean isDeleted, boolean isPrivate, Category category, 
+    		AccessType accessType, Locale locale, String description, LocalDateTime eventDate, LocalDateTime memoryDate) {
+    	    Post post = new Post();
+    	    post.setTitle(title);
+    	    post.setDeleted(isDeleted);
+    	    post.setIsprivate(isPrivate);
+    	    post.setCategory(category);
+    	    post.setAccessType(accessType);
+    	    post.setCreatedtime(LocalDateTime.now());
+    	    post.setUpdatedtime(LocalDateTime.now());
+    	    post.setEventdate(eventDate);
+    	    post.setMemorydate(memoryDate);
+    	    post.setLocale(locale);
+    	    post.setDescription(description);
+    	    post.setDeletedcode("");
+    	    
+    	    return post;
+    	      
     }
 }
