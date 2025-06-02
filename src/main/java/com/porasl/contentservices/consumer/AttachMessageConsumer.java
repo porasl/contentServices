@@ -1,7 +1,6 @@
 package com.porasl.contentservices.consumer;
 
 import java.time.LocalDateTime;
-import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -10,12 +9,8 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.porasl.contentservices.domain.Attachment;
-import com.porasl.contentservices.domain.Post;
 import com.porasl.contentservices.repository.AttachRepository;
 import com.porasl.contentservices.repository.PostMongoRepository;
-import com.porasl.contentservices.utils.AccessType;
-import com.porasl.contentservices.utils.Category;
-import com.porasl.contentservices.utils.UUIDGenerator;
 
 @Service
 public class AttachMessageConsumer {
@@ -67,13 +62,13 @@ public class AttachMessageConsumer {
             attachment.setCreatedby(userId);
             attachment.setLastmodifiedby(userId);
             attachment.setFilepath(videopath);
-            if(!postCode.equals("")) {
-            	 postCode = UUIDGenerator.generateUUID();
-            	 //Create a post
+           // if(!postCode.equals("")) {
+            //	 postCode = UUIDGenerator.generateUUID();
+            //	 //Create a post
             	 
-            }else {
+          //  }else {
             	
-            }
+           // }
             attachment.setPostcode(postCode);   
             attachment.setLastmodified(LocalDateTime.now());
             attachment.setType(type);
@@ -85,8 +80,8 @@ public class AttachMessageConsumer {
             System.out.println("userId: " + userId);
             System.out.println("videopath: " + videopath);
            
-            Post post = constructPost(false,Category.DEFAULT, AccessType.PUBLIC,Locale.US); 
-            postRepo.save(post);
+            //Post post = constructPost(false,Category.DEFAULT, AccessType.PUBLIC,Locale.US); 
+           // postRepo.save(post);
             
             System.out.println("Encoding complete for: " + node.get("attachMessage").asText());
 
@@ -94,7 +89,8 @@ public class AttachMessageConsumer {
             e.printStackTrace();
         }
     }
-    
+  
+    /*
     private Post constructPost(boolean isDeleted, Category category, 
     		AccessType accessType, Locale locale) {
     	    Post post = new Post();
@@ -108,5 +104,5 @@ public class AttachMessageConsumer {
     	    
     	    return post;
     	      
-    }
+    } */
 }

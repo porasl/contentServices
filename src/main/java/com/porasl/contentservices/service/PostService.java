@@ -19,12 +19,12 @@ public class PostService {
 		this.postRepository = postRepository;
 	}
 
-	public Optional<Post> addAttachment(Long postId, Attachment attachment) {
+	public Optional<Post> addAttachment(String postId, Attachment attachment) {
 		postRepository.addAttachment(postId, attachment);
 		return postRepository.findById(postId);
 	}
 
-	public Optional<Post> removeAttachment(Long postId, String filename) {
+	public Optional<Post> removeAttachment(String postId, String filename) {
 		postRepository.removeAttachment(postId, filename);
 		return postRepository.findById(postId);
 	}
@@ -33,11 +33,11 @@ public class PostService {
 		return postRepository.save(post);
 	}
 
-	public Optional<Post> getPostById(Long id) {
+	public Optional<Post> getPostById(String id) {
 		return postRepository.findById(id);
 	}
 
-	public void deletePost(Long id) {
+	public void deletePost(String id) {
 		postRepository.deleteById(id);
 	}
 }

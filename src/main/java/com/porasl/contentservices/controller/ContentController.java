@@ -49,7 +49,7 @@ public class ContentController {
     @GetMapping("/{id}") 
     public ResponseEntity<Post> getPost( 
     		@Parameter(description = "Post Id")
-    @PathVariable Long id) { 
+    @PathVariable String id) { 
     	return postService.getPostById(id) 
     			.map(ResponseEntity::ok) 
     			.orElse(ResponseEntity.notFound().build()); 
@@ -58,7 +58,7 @@ public class ContentController {
     @Operation(summary = "Delete Post")
     @DeleteMapping("/{id}") 
     public ResponseEntity<Void> deletePost(
-    		@Parameter(description = "Delete Post id") @PathVariable Long id) {
+    		@Parameter(description = "Delete Post id") @PathVariable String id) {
     	postService.deletePost(id); 
     	return ResponseEntity.noContent().build(); 
     	}
@@ -67,7 +67,7 @@ public class ContentController {
     @Operation(summary = "Add attachments to the Post")
     @PatchMapping("/{postId}/attachments/add")
     public ResponseEntity<Post> addAttachment(
-    		@Parameter(description = "PostId") @PathVariable Long postId,
+    		@Parameter(description = "PostId") @PathVariable String postId,
     		@Parameter(description = "Attachment") @RequestBody Attachment attachment) {
         return postService.addAttachment(postId, attachment)
                 .map(ResponseEntity::ok)
@@ -76,7 +76,7 @@ public class ContentController {
 
     @PatchMapping("/{postId}/attachments/remove")
     public ResponseEntity<Post> removeAttachment(
-    		@Parameter(description = "PostId") @PathVariable Long postId,
+    		@Parameter(description = "PostId") @PathVariable String postId,
     		@Parameter(description = "filename") @RequestBody String filename) {
         return postService.removeAttachment(postId, filename)
                 .map(ResponseEntity::ok)

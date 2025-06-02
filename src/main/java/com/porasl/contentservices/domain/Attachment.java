@@ -48,5 +48,5 @@ public class Attachment {
     private LocalDateTime lastmodified;
 
     @Column(nullable = true)
-    private Long postid;
+    private String postid;
 }
