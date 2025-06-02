@@ -4,6 +4,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.porasl.contentservices.domain.Post;
 
-public interface PostRepository extends MongoRepository<Post, String>, CustomPostRepository{
+public interface PostMongoRepository extends MongoRepository<Post, Long>, CustomPostRepository{
 	
 }

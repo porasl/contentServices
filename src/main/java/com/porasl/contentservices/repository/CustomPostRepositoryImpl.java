@@ -18,14 +18,14 @@ public class CustomPostRepositoryImpl implements CustomPostRepository {
     private MongoTemplate mongoTemplate;
 
     @Override
-    public void addAttachment(String postId, Attachment attachment) {
+    public void addAttachment(Long postId, Attachment attachment) {
         Query query = new Query(Criteria.where("id").is(postId));
         Update update = new Update().addToSet("attachments", attachment);
         mongoTemplate.updateFirst(query, update, Post.class);
     }
 
     @Override
-    public void removeAttachment(String postId, String filename) {
+    public void removeAttachment(Long postId, String filename) {
         Query query = new Query(Criteria.where("id").is(postId));
         Update update = new Update().pull("attachments", new Document("filename", filename));
         mongoTemplate.updateFirst(query, update, Post.class);

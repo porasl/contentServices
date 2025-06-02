@@ -1,23 +1,38 @@
 package com.porasl.contentservices.domain;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.porasl.contentservices.utils.AccessType;
 import com.porasl.contentservices.utils.Category;
 import com.porasl.contentservices.utils.State;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Locale;
 
 @Data
-@Document(collection = "posts")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@EntityListeners(AuditingEntityListener.class)
+@Table(name = "post")
 public class Post {
-    @Id
-    private String id;
+	@Id
+    @GeneratedValue
+    private Long id;
+	
     private String title;
     private String content;
     private List<Attachment> attachments;
