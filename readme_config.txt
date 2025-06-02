@@ -82,8 +82,8 @@ INSERT INTO config(configName, configvalue) VALUES ("ffprobe","d:/tools/ffmpeg/b
 INSERT INTO config(configname, configvalue) VALUES ("mail.transport.protocol","smtp");
 INSERT INTO config(configname, configvalue) VALUES ("mail.smtp.host","outlook.office365.com");
 INSERT INTO config(configname, configvalue) VALUES ("mail.smtp.auth","true");
-INSERT INTO config(configname, configvalue) VALUES ("mail.sender","xxxxx");
-INSERT INTO config(configname, configvalue) VALUES ("mail.password","XXXXXX");
+INSERT INTO config(configname, configvalue) VALUES ("mail.sender","info@inrik.com");
+INSERT INTO config(configname, configvalue) VALUES ("mail.password","OMd34sdE$2");
 INSERT INTO config(configname, configvalue) VALUES ("mail.smtp.starttls.enable","true");
 INSERT INTO config(configname, configvalue) VALUES ("mail.smtp.port","587");
 
