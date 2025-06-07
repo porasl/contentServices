@@ -10,16 +10,12 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.porasl.contentservices.domain.Attachment;
 import com.porasl.contentservices.repository.AttachRepository;
-import com.porasl.contentservices.repository.PostMongoRepository;
 
 @Service
 public class AttachMessageConsumer {
    
 	@Autowired
 	AttachRepository attachRepo;
-	
-	@Autowired
-	PostMongoRepository postRepo;
 	
     @KafkaListener(topics = "attach-uploads", groupId = "attach-uploads")
     public void consume(String messageJson) {

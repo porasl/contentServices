@@ -13,9 +13,9 @@ import com.porasl.contentservices.domain.Attachment;
 public interface AttachRepository extends JpaRepository<Attachment, Long> {
 
     @Query("SELECT attach FROM Attachment attach WHERE attach.postid = :postid")
-    List<Attachment> getAttachments(@Param("postid") Long postid);
+    List<Attachment> getAttachments(@Param("postid") String postid);
 
     void deleteById(Long id);
 
-    boolean deleteByPostid(Long postid);
+    boolean deleteByPostid(String postid);
 }

@@ -8,7 +8,7 @@ import com.porasl.contentservices.domain.Attachment;
 import com.porasl.contentservices.repository.AttachRepository;
 import com.porasl.contentservices.service.AttachService;
 
-public class AttachServiceImp implements AttachService{
+public class AttachServiceImp{
 	
 	 @Autowired
 	  private AttachRepository attachRepo;
@@ -17,19 +17,8 @@ public class AttachServiceImp implements AttachService{
 	   return attachRepo.save(attach);
    }
    
-	public List<Attachment> getAttachments(Long postid){
+	public List<Attachment> getAttachments(String postid){
 		return attachRepo.getAttachments(postid);
-	}
-
-	@Override
-	public boolean deleteAttachmentsByPostId(Long postid) {
-		return attachRepo.deleteByPostid(postid);
-	}
-
-	@Override
-	public boolean deleteAttachmentById(Long itemid) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 }

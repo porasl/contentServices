@@ -14,7 +14,6 @@ import org.slf4j.LoggerFactory;
 import com.porasl.contentservices.domain.Attachment;
 import com.porasl.contentservices.domain.Comment;
 import com.porasl.contentservices.domain.Item;
-import com.porasl.contentservices.domain.Post;
 import com.porasl.contentservices.domain.Profile;
 import com.porasl.contentservices.helper.PostClient;
 
@@ -102,45 +101,6 @@ import com.porasl.contentservices.helper.PostClient;
 		return jsonArray;
 	}
 	
-	public static JSONArray postToString(Post[] posts, String contentNames, List<Attachment> attachments){
-		JSONArray jsonArray = new JSONArray();
-		for(int i=0;i<posts.length;i++){
-			JSONObject obj = new JSONObject();
-			Post post = posts[i];
-		try {
-			obj.put("post", post.getId());
-			obj.put("locale",post.getLocale());
-			obj.put("accessType", post.getAccessType());
-			obj.put("deleted", post.isDeleted());
-			obj.put("deleteCode",post.getDeletedcode());
-			obj.put("isdeleted",post.isDeleted());
-			obj.put("state",post.getState());
-			obj.put("description",post.getDescription());
-			obj.put("eventDate",post.getEventdate());
-			
-			//set a component for Attached items
-			
-			obj.put("attachments", attachmentToString(attachments));
-			String description = "";
-			if(post.getDescription() == null || post.getDescription() == "null") {
-				description = "";
-			}else {
-				description = post.getDescription();
-			}
-			obj.put("description", description);
-			obj.put("creationDate", post.getCreatedtime());
-			obj.put("modificationDate",post.getUpdatedtime());
-			obj.put("deletedCode", post.getDeletedcode());
-			obj.put("userId", "USER_ID");
-			obj.put("contentNames", contentNames);
-			jsonArray.add(obj);
-
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-	}
-	return jsonArray;
-	}
 	
 	
 	public static JSONArray attachmentToString(List<Attachment> attachments){
@@ -186,43 +146,6 @@ import com.porasl.contentservices.helper.PostClient;
 	}
 	return jsonArray;
 	}
-
-
-	public static JSONArray postClientToString(PostClient[] postClients){
-		JSONArray jsonArray = new JSONArray();
-		for(PostClient postClient : postClients){
-			JSONObject obj = new JSONObject();
-			Post post = postClient.getPost();
-		try {
-			obj.put("postinfoid", post.getId());
-			obj.put("locale",post.getLocale());
-			obj.put("accessType", post.getAccessType());
-			obj.put("deleted", post.isDeleted());
-			obj.put("deleteCode",post.getDeletedcode());
-			
-			obj.put("state",post.getState());
-			if(post.getDescription() != null) {
-				obj.put("description", URLDecoder.decode(post.getDescription(),  StandardCharsets.UTF_8));
-			}
-			
-			obj.put("eventDate",post.getEventdate());
-			obj.put("memoryDate",post.getMemorydate());
-			
-			//set comments 
-			obj.put("comments", commentsInfoToString(postClient.getComments()));
-
-			//set attachments
-			obj.put("attachments", attachmentToString(postClient.getAttachments()));
-			obj.put("creationDate", post.getCreatedtime());
-			jsonArray.add(obj);
-
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-	}
-	return jsonArray;
-	}
-	
 	
 	public static JSONArray profileToString(Profile profileInfo){
 		JSONArray jsonArray = new JSONArray();
