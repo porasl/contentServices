@@ -32,7 +32,7 @@ public class AttachMessageConsumer {
             JsonNode attachNode = mapper.readTree(innerJson);
 
             // Now extract fields
-            String postCode = attachNode.get("postCode").asText();
+            String postId = attachNode.hasNonNull("postId") ? attachNode.get("postId").asText() : "";
             String type = attachNode.get("type").asText();
             
             Attachment attachment = new Attachment();
@@ -58,26 +58,16 @@ public class AttachMessageConsumer {
             attachment.setCreatedby(userId);
             attachment.setLastmodifiedby(userId);
             attachment.setFilepath(videopath);
-           // if(!postCode.equals("")) {
-            //	 postCode = UUIDGenerator.generateUUID();
-            //	 //Create a post
-            	 
-          //  }else {
-            	
-           // }
-            attachment.setPostcode(postCode);   
+            attachment.setPostcode(postId);   
             attachment.setLastmodified(LocalDateTime.now());
             attachment.setType(type);
             
             attachRepo.save(attachment);
 
-            System.out.println("postCode: " + postCode);
+            System.out.println("postId: " + postId);
             System.out.println("type: " + type);
             System.out.println("userId: " + userId);
             System.out.println("videopath: " + videopath);
-           
-            //Post post = constructPost(false,Category.DEFAULT, AccessType.PUBLIC,Locale.US); 
-           // postRepo.save(post);
             
             System.out.println("Encoding complete for: " + node.get("attachMessage").asText());
 
@@ -85,20 +75,4 @@ public class AttachMessageConsumer {
             e.printStackTrace();
         }
     }
-  
-    /*
-    private Post constructPost(boolean isDeleted, Category category, 
-    		AccessType accessType, Locale locale) {
-    	    Post post = new Post();
-    	    post.setDeleted(isDeleted);
-    	    post.setCategory(category);
-    	    post.setAccessType(accessType);
-    	    post.setCreatedtime(LocalDateTime.now());
-    	    post.setUpdatedtime(LocalDateTime.now());
-    	    post.setLocale(locale);
-    	    post.setDeletedcode("");
-    	    
-    	    return post;
-    	      
-    } */
 }
