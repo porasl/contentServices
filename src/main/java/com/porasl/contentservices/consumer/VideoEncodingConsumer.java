@@ -8,12 +8,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class VideoEncodingConsumer {
-
+	
     @KafkaListener(topics = "video-uploads", groupId = "video-encoder")
     public void consume(String messageJson) {
         System.out.println("Received message: " + messageJson);
-
-        // Parse JSON and extract filePath
         try {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode node = mapper.readTree(messageJson);

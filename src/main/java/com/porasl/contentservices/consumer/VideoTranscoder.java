@@ -1,12 +1,14 @@
 package com.porasl.contentservices.consumer;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
 import net.bramp.ffmpeg.FFmpeg;
 import net.bramp.ffmpeg.FFmpegExecutor;
 import net.bramp.ffmpeg.FFprobe;
 import net.bramp.ffmpeg.builder.FFmpegBuilder;
 import net.bramp.ffmpeg.job.FFmpegJob;
-
-import java.io.File;
-import java.io.IOException;
 
 public class VideoTranscoder {
 
@@ -21,7 +23,7 @@ public class VideoTranscoder {
     }
 
     public String getHlsOutputFolder(String input) {
-        String baseName = new File(input).getName().replaceFirst("[.][^.]+$", "");
+    	    String baseName = new File(input).getName();
         String outputDir = "/Users/hamidporasl/webdata/videos/" + baseName;
         new File(outputDir).mkdirs();
         return outputDir;
@@ -29,11 +31,15 @@ public class VideoTranscoder {
 
     public void transcode() {
         try {
-            // Use ffmpeg and ffprobe from system PATH
             FFmpeg ffmpeg = new FFmpeg("/opt/homebrew/bin/ffmpeg");
             FFprobe ffprobe = new FFprobe("/opt/homebrew/bin/ffprobe");
 
-            String output = String.format("%s%sstream.m3u8", getHlsOutputFolder(inputFilename), File.separator);
+            convetorAnimation(getInputFilename(), 
+            		getHlsOutputFolder(inputFilename), 
+            		"/opt/homebrew/bin/ffmpeg");
+            
+            String output = String.format("%s%sstream.m3u8",
+            		getHlsOutputFolder(inputFilename), File.separator);
 
             FFmpegBuilder builder = new FFmpegBuilder()
                     .setInput(this.getInputFilename())
@@ -62,9 +68,45 @@ public class VideoTranscoder {
 
             System.out.println("FFmpeg job state: " + job.getState());
             System.out.println("Return code: " + job.getState());
-
+           
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    
+    public boolean convetorAnimation(String inputFileAddress, String outputFolder, String ffmpegExe) {
+		String name = outputFolder +"/videoImage";
+		String paletteFile = name + ".png";
+		String gifFile = name + ".gif";
+		boolean isComplete = false;
+		for (int i = 0; i < 5; i++) {
+			try {
+				// Generate palette
+				Process p = new ProcessBuilder().command(ffmpegExe, "-v", "warning", "-ss",
+						"2", "-t", "10", "-i", inputFileAddress, "-vf", "fps=5,scale=400:-1:flags=lanczos,palettegen",
+						"-y", paletteFile, "-vn").start();
+				isComplete = p.waitFor(10, TimeUnit.SECONDS);
+
+				if (!isComplete) {
+					System.out.println("Error generating palette");
+				} else {
+					p = new ProcessBuilder().command(ffmpegExe,
+									"-v", "warning", "-ss", "2", "-t", "10", "-i", 
+									inputFileAddress, "-i", paletteFile, "-lavfi",
+									"fps=5,scale=650:-1:flags=lanczos [x]; [x][1:v] paletteuse",
+									"-y", gifFile, "-vn").start();
+					isComplete = p.waitFor(10, TimeUnit.SECONDS);
+					if (isComplete) {
+						System.out.println("Generate gif successfully");
+						break;
+					} else {
+						System.out.println("Error generating gif");
+					}
+				}
+			} catch (Exception e) {
+				System.out.println("Error generating gif");
+			}
+		}
+		return true;
+	}
 }
