@@ -56,7 +56,7 @@ public class VideoTranscoder {
                     .setVideoFrameRate(30, 1)
                     .setStrict(FFmpegBuilder.Strict.STRICT)
                     .addExtraArgs(
-                            "-vf", "drawtext=text='Inrik.com':fontcolor=white:fontsize=48:x=10:y=10",
+                            "-vf", "drawtext=text='Inrik.com':fontcolor=white:fontsize=64:x=10:y=10",
                             "-hls_time", "10",
                             "-hls_list_size", "0"
                         )
