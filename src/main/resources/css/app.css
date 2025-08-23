@@ -1,0 +1,190 @@
+/* ===== Top nav / tabs ===== */
+nav.tabs {
+  padding-left: 80px; /* Same as .leftbar width */
+  z-index: 1031;      /* Above the leftbar */
+  position: relative;
+}
+
+
+#topLinksSection {
+  margin-left: 300px;
+}
+
+/* ===== Upload overlay ===== */
+#uploadSpinnerOverlay {
+  position: absolute;
+  top: 500px;
+  left: 500px;
+  z-index: 1055;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Center helper */
+.d-flex-center {
+  display: none; /* toggled via JS to .d-flex */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Bigger spinner without inline styles */
+.spinner-lg {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* ===== Leftbar ===== */
+.leftbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 80px;
+  background-color: #f8f9fa;
+  overflow-y: auto;
+  z-index: 1030;
+}
+
+@media (max-width: 768px) {
+  .leftbar {
+    display: none;
+  }
+  #app-container,
+  #myContents-container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  nav.tabs {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: start !important;
+  }
+  nav.tabs .login-form,
+  nav.tabs #userSection {
+    width: 100%;
+    justify-content: space-between !important;
+  }
+}
+
+/* ===== Videos rail ===== */
+.scroll-video {
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+}
+.video-scroll-track {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px;
+  scroll-snap-type: x mandatory;
+}
+.video-scroll-track video {
+  scroll-snap-align: center;
+}
+
+/* ===== Branding ===== */
+.logo-container {
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 80px;
+}
+.company-logo {
+  width: 150px;
+  height: 60px;
+}
+
+/* ===== Circle (canvas badge) ===== */
+#circle {
+  height: 80px; /* fixed the '80x' typo */
+  width: 80px;
+  border-radius: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-family: Arial, sans-serif;
+  margin: 25px auto;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* ===== Buttons ===== */
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+/* ===== Cards ===== */
+.card-text {
+  font-size: 0.8rem; /* ~20% smaller than 1rem */
+}
+
+/* ===== Logo span wrapper ===== */
+.logo-span {
+  display: inline-block;
+}
+
+.video-max-200 {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  /* Optional cap so cards stay tidy */
+  max-height: 200px;
+}
+
+/* rail-only, not for main grid videos */
+.scroll-video { 
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+}
+
+/* Responsive 16:9 inside modal; cap height to viewport */
+.modal-video-wrapper {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-height: 80vh;
+}
+#modalVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* keeps whole frame visible */
+  background: #000;
+}
+
+/* White margin “frame” around the video */
+.modal-white-frame {
+  background: #fff;        /* white border/margin container */
+  padding: 16px;           /* the visible white margin */
+}
+
+/* Keep proper size; cap to viewport */
+.modal-video-wrapper {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-height: 80vh;
+  background: #000;        /* letterbox background */
+}
+
+#modalVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* ===== Utilities (replace prior inline styles) ===== */
+.mt-25 { margin-top: 25px; }
+.p-150 { padding: 150px; }
+.h-1 { height: 1px; }
+.min-h-200 { min-height: 200px; }
+.icon-24 { width: 24px; height: 24px; }
+.h-40 { height: 40px; }
+.w-40 { width: 40px; }
+.w-60 { width: 60px; }
+.cursor-pointer { cursor: pointer; }
+.iframe-embed { border: none; }
+.d-none { display: none !important; } /* for convenience outside Bootstrap contexts */
