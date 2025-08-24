@@ -1,6 +1,6 @@
 package com.porasl.contentservices.utils;
 
-import javax.servlet.http.Part;
+import jakarta.servlet.http.Part;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
