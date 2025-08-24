@@ -97,4 +97,29 @@ public class Comment {
 	public void setCommentinfoid(long commentinfoid) {
 		this.commentinfoid = commentinfoid;
 	}
+
+	// Explicit getters to ensure compilation without Lombok processing
+	public long getItemid() { return itemid; }
+	public long getUserid() { return userid; }
+	public String getCommenttext() { return commenttext; }
+	public Date getCreationdate() { return creationdate; }
+	public Date getModificationdate() { return modificationdate; }
+	public long getPostinfoid() { return postinfoid; }
+	public long getTotalliked() { return totalliked; }
+	public long getTotalunliked() { return totalunliked; }
+
+	// Explicit setters to satisfy JPA property access
+	public void setCreatedate(LocalDateTime createdate) { this.createdate = createdate; }
+	public void setLastmodified(LocalDateTime lastmodified) { this.lastmodified = lastmodified; }
+	public void setCreatedby(Integer createdby) { this.createdby = createdby; }
+	public void setLastmodifiedby(Integer lastmodifiedby) { this.lastmodifiedby = lastmodifiedby; }
+	public void setItemid(long itemid) { this.itemid = itemid; }
+	public void setUserid(long userid) { this.userid = userid; }
+	public void setCommenttext(String commenttext) { this.commenttext = commenttext; }
+	public void setCreationdate(Date creationdate) { this.creationdate = creationdate; }
+	public void setModificationdate(Date modificationdate) { this.modificationdate = modificationdate; }
+	public void setPostinfoid(long postinfoid) { this.postinfoid = postinfoid; }
+	public void setTotalliked(long totalliked) { this.totalliked = totalliked; }
+	public void setTotalunliked(long totalunliked) { this.totalunliked = totalunliked; }
+	public void setCommenttype(String commenttype) { this.commenttype = commenttype; }
 }

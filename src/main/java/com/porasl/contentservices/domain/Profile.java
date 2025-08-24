@@ -139,6 +139,56 @@ public class Profile {
 		public void setProfileinfoid(long profileinfoid) {
 			this.profileinfoid = profileinfoid;
 		}
+
+		// Explicit getters to ensure compilation without Lombok processing
+		public String getIconname() { return iconname; }
+		public String getSchool() { return school; }
+		public String getWorkplace() { return workplace; }
+		public String getEducation() { return education; }
+		public String getFreetextprofile() { return freetextprofile; }
+		public String getFullname() { return fullname; }
+		public String getTitle() { return title; }
+		public String getCity() { return city; }
+		public String getCountry() { return country; }
+		public String getLocale() { return locale; }
+		public String getPhonenumber() { return phonenumber; }
+		public String getEmailaddress() { return emailaddress; }
+		public String getSearechkeys() { return searechkeys; }
+		public boolean isHideinpublicsearch() { return hideinpublicsearch; }
+		public String getSubscribedids() { return subscribedids; }
+		public String getHashtags() { return hashtags; }
+		public String getTags() { return tags; }
+		public long getUserid() { return userid; }
+		public Date getCreationdate() { return creationdate; }
+		public Date getModificationdate() { return modificationdate; }
+		public Date getBirthdate() { return birthdate; }
+		
+		// Explicit setters to satisfy JPA property access
+		public void setCreatedate(LocalDateTime createdate) { this.createdate = createdate; }
+		public void setLastmodified(LocalDateTime lastmodified) { this.lastmodified = lastmodified; }
+		public void setCreatedby(Integer createdby) { this.createdby = createdby; }
+		public void setLastmodifiedby(Integer lastmodifiedby) { this.lastmodifiedby = lastmodifiedby; }
+		public void setIconname(String iconname) { this.iconname = iconname; }
+		public void setSchool(String school) { this.school = school; }
+		public void setWorkplace(String workplace) { this.workplace = workplace; }
+		public void setEducation(String education) { this.education = education; }
+		public void setFreetextprofile(String freetextprofile) { this.freetextprofile = freetextprofile; }
+		public void setFullname(String fullname) { this.fullname = fullname; }
+		public void setTitle(String title) { this.title = title; }
+		public void setCity(String city) { this.city = city; }
+		public void setCountry(String country) { this.country = country; }
+		public void setLocale(String locale) { this.locale = locale; }
+		public void setPhonenumber(String phonenumber) { this.phonenumber = phonenumber; }
+		public void setEmailaddress(String emailaddress) { this.emailaddress = emailaddress; }
+		public void setSearechkeys(String searechkeys) { this.searechkeys = searechkeys; }
+		public void setHideinpublicsearch(boolean hideinpublicsearch) { this.hideinpublicsearch = hideinpublicsearch; }
+		public void setSubscribedids(String subscribedids) { this.subscribedids = subscribedids; }
+		public void setHashtags(String hashtags) { this.hashtags = hashtags; }
+		public void setTags(String tags) { this.tags = tags; }
+		public void setUserid(long userid) { this.userid = userid; }
+		public void setCreationdate(Date creationdate) { this.creationdate = creationdate; }
+		public void setModificationdate(Date modificationdate) { this.modificationdate = modificationdate; }
+		public void setBirthdate(Date birthdate) { this.birthdate = birthdate; }
 }
 
 

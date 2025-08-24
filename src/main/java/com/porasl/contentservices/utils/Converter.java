@@ -2,7 +2,6 @@ package com.porasl.contentservices.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import org.codehaus.jettison.json.JSONException;
@@ -15,7 +14,7 @@ import com.porasl.contentservices.domain.Attachment;
 import com.porasl.contentservices.domain.Comment;
 import com.porasl.contentservices.domain.Item;
 import com.porasl.contentservices.domain.Profile;
-import com.porasl.contentservices.helper.PostClient;
+ 
 
  public class  Converter {
 	 private static final Logger logger = LoggerFactory.getLogger(Converter.class);

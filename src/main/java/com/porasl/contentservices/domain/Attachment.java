@@ -49,4 +49,26 @@ public class Attachment {
 
     @Column(nullable = true)
     private String postid;
+
+    // Explicit getters to ensure compilation without Lombok processing
+    public Long getId() { return id; }
+    public String getVideopath() { return videopath; }
+    public String getAudiopath() { return audiopath; }
+    public String getImagepath() { return imagepath; }
+    public String getFilepath() { return filepath; }
+    public String getType() { return type; }
+    public String getPostid() { return postid; }
+
+    // Explicit setters used by consumers/services
+    public void setVideopath(String videopath) { this.videopath = videopath; }
+    public void setAudiopath(String audiopath) { this.audiopath = audiopath; }
+    public void setImagepath(String imagepath) { this.imagepath = imagepath; }
+    public void setFilepath(String filepath) { this.filepath = filepath; }
+    public void setType(String type) { this.type = type; }
+    public void setCreatedate(LocalDateTime createdate) { this.createdate = createdate; }
+    public void setCreatedby(String createdby) { this.createdby = createdby; }
+    public void setLastmodifiedby(String lastmodifiedby) { this.lastmodifiedby = lastmodifiedby; }
+    public void setPostcode(String postcode) { this.postcode = postcode; }
+    public void setLastmodified(LocalDateTime lastmodified) { this.lastmodified = lastmodified; }
+    public void setPostid(String postid) { this.postid = postid; }
 }

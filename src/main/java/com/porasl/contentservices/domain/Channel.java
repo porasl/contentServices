@@ -147,5 +147,19 @@ public class Channel {
 		public void setChannelinfoid(long channelinfoid) {
 			this.channelinfoid = channelinfoid;
 		}
-}
 
+		// Explicit setters to satisfy JPA property access
+		public void setCreatedate(LocalDateTime createdate) { this.createdate = createdate; }
+		public void setLastmodified(LocalDateTime lastmodified) { this.lastmodified = lastmodified; }
+		public void setCreatedby(Integer createdby) { this.createdby = createdby; }
+		public void setLastmodifiedby(Integer lastmodifiedby) { this.lastmodifiedby = lastmodifiedby; }
+		public void setIconpath(String iconpath) { this.iconpath = iconpath; }
+		public void setChannelname(String channelname) { this.channelname = channelname; }
+		public void setUserid(long userid) { this.userid = userid; }
+		public void setCategory(String category) { this.category = category; }
+		public void setChanneltags(String channeltags) { this.channeltags = channeltags; }
+		public void setChannelhashtags(String channelhashtags) { this.channelhashtags = channelhashtags; }
+		public void setCreationdate(Date creationdate) { this.creationdate = creationdate; }
+		public void setModificationdate(Date modificationdate) { this.modificationdate = modificationdate; }
+		public void setChannelview(long channelview) { this.channelview = channelview; }
+	}

@@ -144,4 +144,57 @@ public class Item {
 		this.itemid = itemid;
 	}
 	
+	// Explicit getters to ensure compilation without Lombok processing
+	public String getType() { return type; }
+	public String getOldfilename() { return oldfilename; }
+	public String getHashtags() { return hashtags; }
+	public boolean isAccesstype() { return accesstype; }
+	public boolean isDeleted() { return deleted; }
+	public int getDeletecode() { return deletecode; }
+	public String getDescription() { return description; }
+	public String getFormat() { return format; }
+	public String getAudiopath() { return audiopath; }
+	public String getImagepath() { return imagepath; }
+	public String getVideopath() { return videopath; }
+	public String getFilepath() { return filepath; }
+	public Date getCreationdate() { return creationdate; }
+	public Date getModificationdate() { return modificationdate; }
+	public Date getExpirationdate() { return expirationdate; }
+	public Date getDeletiondate() { return deletiondate; }
+	public Long getUserid() { return userid; }
+	public String getCommentids() { return commentids; }
+	public boolean isHlstranscoded() { return hlstranscoded; }
+	public boolean isImagetranscoded() { return imagetranscoded; }
+	public boolean isCompleted() { return completed; }
+	public boolean isFeatured() { return featured; }
+	public String getLocale() { return locale; }
+
+	// Explicit setters to satisfy JPA property access
+	public void setCreatedate(LocalDateTime createdate) { this.createdate = createdate; }
+	public void setLastmodified(LocalDateTime lastmodified) { this.lastmodified = lastmodified; }
+	public void setCreatedby(Integer createdby) { this.createdby = createdby; }
+	public void setLastmodifiedby(Integer lastmodifiedby) { this.lastmodifiedby = lastmodifiedby; }
+	public void setType(String type) { this.type = type; }
+	public void setOldfilename(String oldfilename) { this.oldfilename = oldfilename; }
+	public void setHashtags(String hashtags) { this.hashtags = hashtags; }
+	public void setAccesstype(boolean accesstype) { this.accesstype = accesstype; }
+	public void setDeleted(boolean deleted) { this.deleted = deleted; }
+	public void setDeletecode(int deletecode) { this.deletecode = deletecode; }
+	public void setDescription(String description) { this.description = description; }
+	public void setFormat(String format) { this.format = format; }
+	public void setAudiopath(String audiopath) { this.audiopath = audiopath; }
+	public void setImagepath(String imagepath) { this.imagepath = imagepath; }
+	public void setVideopath(String videopath) { this.videopath = videopath; }
+	public void setFilepath(String filepath) { this.filepath = filepath; }
+	public void setCreationdate(Date creationdate) { this.creationdate = creationdate; }
+	public void setModificationdate(Date modificationdate) { this.modificationdate = modificationdate; }
+	public void setExpirationdate(Date expirationdate) { this.expirationdate = expirationdate; }
+	public void setDeletiondate(Date deletiondate) { this.deletiondate = deletiondate; }
+	public void setUserid(Long userid) { this.userid = userid; }
+	public void setCommentids(String commentids) { this.commentids = commentids; }
+	public void setHlstranscoded(boolean hlstranscoded) { this.hlstranscoded = hlstranscoded; }
+	public void setImagetranscoded(boolean imagetranscoded) { this.imagetranscoded = imagetranscoded; }
+	public void setCompleted(boolean completed) { this.completed = completed; }
+	public void setFeatured(boolean featured) { this.featured = featured; }
+	public void setLocale(String locale) { this.locale = locale; }
 }

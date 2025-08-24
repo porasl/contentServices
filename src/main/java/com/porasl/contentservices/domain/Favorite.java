@@ -81,5 +81,15 @@ public class Favorite {
 			return favoriteid;
 		}
 		
+		// Explicit setters to satisfy JPA property access
+		public void setCreatedate(LocalDateTime createdate) { this.createdate = createdate; }
+		public void setLastmodified(LocalDateTime lastmodified) { this.lastmodified = lastmodified; }
+		public void setCreatedby(Integer createdby) { this.createdby = createdby; }
+		public void setLastmodifiedby(Integer lastmodifiedby) { this.lastmodifiedby = lastmodifiedby; }
+		public void setFavoriteid(long favoriteid) { this.favoriteid = favoriteid; }
+		public void setUserid(long userid) { this.userid = userid; }
+		public void setItemid(long itemid) { this.itemid = itemid; }
+		public void setChannelname(String channelname) { this.channelname = channelname; }
+		public void setSubscribed(boolean subscribed) { this.subscribed = subscribed; }
+		public void setLiked(boolean liked) { this.liked = liked; }
 }
-

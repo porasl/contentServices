@@ -34,4 +34,8 @@ public class Config {
     @Column(nullable = true)
     private String configvalue;
 
+    // Explicit getters to avoid reliance on Lombok processing in method references
+    public String getConfigname() { return configname; }
+    public String getConfigvalue() { return configvalue; }
+
 }
