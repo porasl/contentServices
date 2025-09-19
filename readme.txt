@@ -68,3 +68,15 @@ Delete /contentservices/{id}
 Patch  /{postId}/attachments/add
 patch /{postId}/attachments/remove
 
+
+Kafka
+breq install kafka
+
+To start kafka now and restart at login:
+  brew services start kafka
+Or, if you don't want/need a background service you can just run:
+  /opt/homebrew/opt/kafka/bin/kafka-server-start /opt/homebrew/etc/kafka/server.properties
+==> Summary
+🍺  /opt/homebrew/Cellar/kafka/4.1.0: 218 files, 128.3MB
+==> Running `brew cleanup kafka`....
+
