@@ -69,8 +69,8 @@ Patch  /{postId}/attachments/add
 patch /{postId}/attachments/remove
 
 
-Kafka
-breq install kafka
+# ===== Kafka
+brew install kafka
 
 To start kafka now and restart at login:
   brew services start kafka
@@ -79,4 +79,10 @@ Or, if you don't want/need a background service you can just run:
 ==> Summary
 🍺  /opt/homebrew/Cellar/kafka/4.1.0: 218 files, 128.3MB
 ==> Running `brew cleanup kafka`....
+
+#To download Youtube videos
+pip install yt-dlp
+python -m yt_dlp https://www.youtube.com/shorts/1VjRfTG6FJc
+
+yt-dlp -f "bv*+ba/best" --merge-output-format mp4 https://www.youtube.com/shorts/ii2I6BH8m4I
 
