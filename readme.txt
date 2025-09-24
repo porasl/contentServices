@@ -19,7 +19,7 @@ mongod --config /usr/local/etc/mongod.conf
 //connect to Mongodb
 >> Mongo or use the Mongo Compass
 
-mongo
+mongo DB
 use inrik
 db.createCollection("contents")
 
@@ -27,40 +27,6 @@ db.createCollection("contents")
 show collections
 
 db.contents.find()  OR db["contents"].find()
-
-
-
-Post  request body create
-{
-  "id": "string",
-  "title": "string",
-  "content": "string",
-  "attachments": [
-    {
-      // attachment fields here
-    }
-  ],
-  "comments": [
-    {
-      // comment fields here
-    }
-  ],
-  "isDeleted": false,
-  "isDisabled": false,
-  "isPrivate": false,
-  "category": {
-    // category fields here
-  },
-  "accessType": "string", // Enum value as string
-  "state": "string",      // Enum value as string
-  "createdTime": "2025-03-23T10:15:30",
-  "updatedTime": "2025-03-23T10:15:30",
-  "eventDate": "2025-03-23T10:15:30",
-  "memoryDate": "2025-03-23T10:15:30",
-  "locale": "en-US",
-  "description": "string",
-  "deletedCode": "string"
-}
 
 
 GET  	/contentservices/{id} 
@@ -72,7 +38,7 @@ patch /{postId}/attachments/remove
 # ===== Kafka
 brew install kafka
 
-To start kafka now and restart at login:
+#To start kafka now and restart at login:
   brew services start kafka
 Or, if you don't want/need a background service you can just run:
   /opt/homebrew/opt/kafka/bin/kafka-server-start /opt/homebrew/etc/kafka/server.properties
